@@ -73,66 +73,63 @@ export function ProductCard({ product }: ProductCardProps) {
   const Icon = iconMap[product.id] || (product.type === 'bundle' ? Package : Zap);
 
   return (
-    <div className="group relative bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] flex flex-col">
-      {/* Image Area Placeholder */}
-      <div className="relative h-56 w-full bg-gradient-to-b from-[#1a103d] to-[#050509] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
-        
-        {/* Neon Glow Behind Icon */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-primary/30 blur-3xl rounded-full group-hover:bg-primary/50 transition-all duration-500" />
+    <div className="group relative bg-[#0a0a0f]/90 border border-white/[0.05] rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] flex flex-col h-full backdrop-blur-sm">
+      {/* Unified Content Area */}
+      <div className="relative flex flex-col items-center justify-center pt-12 pb-6 px-6 flex-grow">
+         {/* Ambient Background Glow */}
+         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-2/3 bg-gradient-to-b from-primary/5 to-transparent opacity-60" />
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/10 blur-[60px] rounded-full group-hover:bg-primary/20 transition-all duration-500" />
 
-        {/* Icon */}
-        <div className="relative z-10 group-hover:scale-110 transition-transform duration-500">
-          <Icon 
-            strokeWidth={1.5}
-            className="w-24 h-24 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
-          />
-        </div>
+         {/* Icon */}
+         <div className="relative z-10 mb-8 group-hover:scale-110 transition-transform duration-500 ease-out">
+           <Icon 
+             strokeWidth={1.5}
+             className="w-20 h-20 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+           />
+         </div>
 
-        {/* Badge */}
-        {product.badge && (
-          <div className="absolute top-3 left-3 bg-gradient-to-r from-secondary to-accent text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide z-20">
-            {product.badge}
-          </div>
-        )}
+         {/* Badge */}
+         {product.badge && (
+           <div className="absolute top-5 left-5 bg-pink-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide z-20">
+             {product.badge}
+           </div>
+         )}
+
+         {/* Text Content */}
+         <h3 className="text-lg font-black text-white mb-2 uppercase tracking-wider text-center leading-tight min-h-[3rem] flex items-center justify-center">
+           {product.name}
+         </h3>
+
+         <div className="flex items-baseline justify-center gap-3 mb-2">
+           <span className="text-xs text-gray-500 line-through font-medium">
+             ${product.originalPrice}
+           </span>
+            <span className="text-xl font-bold text-white">
+             ${product.price}
+           </span>
+         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-5 flex flex-col flex-grow bg-[#0a0a0f]">
-        <h3 className="text-lg font-bold text-white mb-1 uppercase tracking-wide line-clamp-2 min-h-[3.5rem] text-center group-hover:text-primary transition-colors">
-          {product.name}
-        </h3>
-        
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <span className="text-sm text-gray-500 line-through decoration-red-500/50">
-            ${product.originalPrice}
-          </span>
-           <span className="text-xl font-bold text-white">
-            ${product.price}
-          </span>
-        </div>
-
-        <div className="mt-auto flex flex-col gap-3">
-           <button 
-             className="w-full py-2.5 px-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-xs font-bold text-gray-300 transition-all uppercase tracking-wider flex items-center justify-center gap-2 group/btn"
-             onClick={() => alert(`Details for ${product.name}: ${product.description}`)}
-           >
-             Details <span className="group-hover/btn:translate-x-1 transition-transform">+</span>
-           </button>
-           
-           <button
-             onClick={handleAddToCart}
-             className={cn(
-               "w-full py-3.5 px-4 rounded-lg font-black text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02]",
-               isAdded 
-                 ? "bg-green-500 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)]"
-                 : "bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)]"
-             )}
-           >
-             {isAdded ? "Added!" : "Buy Now"}
-           </button>
-        </div>
+      {/* Action Buttons */}
+      <div className="p-6 pt-0 mt-auto space-y-3 relative z-10">
+         <button 
+           className="w-full py-3 rounded-full bg-[#1a1a20] hover:bg-[#252530] text-[10px] font-bold text-gray-300 transition-all uppercase tracking-widest border border-white/5"
+           onClick={() => alert(`Details for ${product.name}: ${product.description}`)}
+         >
+           Details +
+         </button>
+         
+         <button
+           onClick={handleAddToCart}
+           className={cn(
+             "w-full py-3 rounded-full font-black text-sm uppercase tracking-widest transition-all shadow-lg hover:shadow-xl active:scale-95",
+             isAdded 
+               ? "bg-green-500 text-white shadow-green-500/25"
+               : "bg-primary hover:bg-primary/90 text-white shadow-primary/25"
+           )}
+         >
+           {isAdded ? "Added!" : "Buy Now"}
+         </button>
       </div>
     </div>
   );
