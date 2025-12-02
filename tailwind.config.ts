@@ -35,12 +35,17 @@ const config: Config = {
       },
       animation: {
         marquee: 'marquee 60s linear infinite',
+        'marquee-reverse': 'marqueeReverse 60s linear infinite',
         'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        marqueeReverse: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
         },
         fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },

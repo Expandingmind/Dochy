@@ -37,10 +37,60 @@ const testimonials = [
     initials: "DS",
     date: "NOV 05, 2024",
     text: "Excellent customer support. They helped me pick the right bundle for my budget.",
+  },
+  {
+    user: "EMILY R.",
+    initials: "ER",
+    date: "OCT 28, 2024",
+    text: "I was hesitant, but the jewelry vendors are top notch. Margins are insane.",
+  },
+  {
+    user: "CHRIS T.",
+    initials: "CT",
+    date: "OCT 15, 2024",
+    text: "The shoe plug alone was worth the price of the entire bundle. 10/10.",
   }
 ];
 
 export function SocialProofSection() {
+  // Split testimonials into two rows for variety
+  const row1 = testimonials.slice(0, 4);
+  const row2 = testimonials.slice(4, 8);
+
+  const ReviewCard = ({ t }: { t: typeof testimonials[0] }) => (
+    <div
+      className="w-[350px] md:w-[400px] bg-white text-black rounded-3xl p-8 flex flex-col gap-6 shadow-xl flex-shrink-0"
+    >
+      {/* Top: Stars and Date */}
+      <div className="flex justify-between items-center">
+        <div className="flex gap-1">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+        <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{t.date}</span>
+      </div>
+
+      {/* Middle: Text */}
+      <p className="text-gray-800 font-medium leading-relaxed min-h-[80px]">
+        &quot;{t.text}&quot;
+      </p>
+
+      {/* Bottom: User Info */}
+      <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold text-sm">
+            {t.initials}
+          </div>
+          <span className="font-black text-sm uppercase tracking-wide">{t.user}</span>
+        </div>
+        <div className="w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center bg-white">
+            <span className="font-bold text-[10px] text-blue-500">G</span>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section id="results" className="py-20 overflow-hidden border-t border-white/5 bg-black/20">
       <div className="container mx-auto px-4 mb-16">
@@ -63,48 +113,25 @@ export function SocialProofSection() {
                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                ))}
             </div>
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Based on 400+ Reviews</p>
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Based on 15,374 Reviews</p>
           </div>
         </div>
       </div>
 
-      {/* Reviews Auto-Scrolling Marquee */}
-      <div className="w-full overflow-hidden">
+      {/* Reviews Auto-Scrolling Marquee - Row 1 (Left) */}
+      <div className="w-full overflow-hidden mb-8">
         <div className="flex gap-6 animate-marquee w-max">
-          {/* Duplicate testimonials to create seamless loop */}
-          {[...testimonials, ...testimonials].map((t, i) => (
-            <div
-              key={i}
-              className="w-[350px] md:w-[400px] bg-white text-black rounded-3xl p-8 flex flex-col gap-6 shadow-xl flex-shrink-0"
-            >
-              {/* Top: Stars and Date */}
-              <div className="flex justify-between items-center">
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{t.date}</span>
-              </div>
+          {[...row1, ...row1, ...row1, ...row1].map((t, i) => (
+            <ReviewCard key={`row1-${i}`} t={t} />
+          ))}
+        </div>
+      </div>
 
-              {/* Middle: Text */}
-              <p className="text-gray-800 font-medium leading-relaxed min-h-[80px]">
-                &quot;{t.text}&quot;
-              </p>
-
-              {/* Bottom: User Info */}
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold text-sm">
-                    {t.initials}
-                  </div>
-                  <span className="font-black text-sm uppercase tracking-wide">{t.user}</span>
-                </div>
-                <div className="w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center bg-white">
-                    <span className="font-bold text-[10px] text-blue-500">G</span>
-                </div>
-              </div>
-            </div>
+      {/* Reviews Auto-Scrolling Marquee - Row 2 (Right) */}
+      <div className="w-full overflow-hidden">
+        <div className="flex gap-6 animate-marquee-reverse w-max">
+          {[...row2, ...row2, ...row2, ...row2].map((t, i) => (
+            <ReviewCard key={`row2-${i}`} t={t} />
           ))}
         </div>
       </div>
