@@ -52,47 +52,57 @@ export function Hero() {
         </div>
 
         {/* Category Cards Island */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl animate-fade-in-up delay-700">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl animate-fade-in-up delay-700">
           {/* Items Card */}
-          <div className="group relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/9] bg-black/40 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
-             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity" />
-             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
-             
-             <div className="absolute inset-0 p-8 flex flex-col justify-end items-start text-left z-10">
-                <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center mb-4 shadow-lg text-black">
-                   <Package className="w-6 h-6" />
+          <div className="group relative rounded-3xl overflow-hidden min-h-[600px] bg-black/40 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)] flex flex-col">
+             {/* Top Image Area */}
+             <div className="h-1/2 bg-gradient-to-b from-primary/10 to-transparent relative flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
+                <div className="w-32 h-32 rounded-full bg-yellow-400/90 flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.4)] z-10 group-hover:scale-110 transition-transform duration-500">
+                   <Package className="w-16 h-16 text-black" />
                 </div>
-                <h3 className="text-2xl font-black text-white uppercase mb-2">Items</h3>
-                <p className="text-gray-300 text-sm mb-6 max-w-sm">
+                {/* Decorative blurred circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl -z-0" />
+             </div>
+             
+             {/* Bottom Content Area */}
+             <div className="h-1/2 p-8 flex flex-col justify-center items-center text-center bg-white/5 backdrop-blur-sm">
+                <h3 className="text-3xl font-black text-white uppercase mb-4 tracking-tight">Items</h3>
+                <p className="text-gray-300 text-base mb-8 max-w-sm leading-relaxed">
                   Explore our curated collection of high-demand bundles and individual items ready for resale.
                 </p>
                 <Link 
                   href="/items"
-                  className="px-6 py-3 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:bg-gray-200 transition-colors"
+                  className="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-full flex items-center gap-2 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
                 >
-                  Explore Items <ArrowRight className="w-4 h-4" />
+                  EXPLORE ITEMS <ArrowRight className="w-4 h-4" />
                 </Link>
              </div>
           </div>
 
           {/* Vendors Card */}
-          <div className="group relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/9] bg-black/40 border border-white/10 hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.2)]">
-             <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity" />
-             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
-             
-             <div className="absolute inset-0 p-8 flex flex-col justify-end items-start text-left z-10">
-                <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center mb-4 shadow-lg text-black">
-                   <Users className="w-6 h-6" />
+          <div className="group relative rounded-3xl overflow-hidden min-h-[600px] bg-black/40 border border-white/10 hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.2)] flex flex-col">
+             {/* Top Image Area */}
+             <div className="h-1/2 bg-gradient-to-b from-secondary/10 to-transparent relative flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
+                <div className="w-32 h-32 rounded-full bg-yellow-400/90 flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.4)] z-10 group-hover:scale-110 transition-transform duration-500">
+                   <Users className="w-16 h-16 text-black" />
                 </div>
-                <h3 className="text-2xl font-black text-white uppercase mb-2">Vendors</h3>
-                <p className="text-gray-300 text-sm mb-6 max-w-sm">
+                {/* Decorative blurred circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-secondary/30 rounded-full blur-3xl -z-0" />
+             </div>
+             
+             {/* Bottom Content Area */}
+             <div className="h-1/2 p-8 flex flex-col justify-center items-center text-center bg-white/5 backdrop-blur-sm">
+                <h3 className="text-3xl font-black text-white uppercase mb-4 tracking-tight">Vendors</h3>
+                <p className="text-gray-300 text-base mb-8 max-w-sm leading-relaxed">
                   Connect directly with trusted manufacturers and suppliers to source your own inventory.
                 </p>
                 <Link 
                   href="/vendors"
-                  className="px-6 py-3 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:bg-gray-200 transition-colors"
+                  className="px-8 py-4 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full flex items-center gap-2 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)]"
                 >
-                  Explore Vendors <ArrowRight className="w-4 h-4" />
+                  EXPLORE VENDORS <ArrowRight className="w-4 h-4" />
                 </Link>
              </div>
           </div>
