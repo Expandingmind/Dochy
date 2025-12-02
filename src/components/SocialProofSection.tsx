@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Star, CheckCircle } from "lucide-react";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -25,6 +25,18 @@ const testimonials = [
     initials: "CL",
     date: "NOV 15, 2024",
     text: "Just hit my first 3k month using the electronics bundle. The suppliers are actually legit.",
+  },
+  {
+    user: "MICHAEL P.",
+    initials: "MP",
+    date: "NOV 10, 2024",
+    text: "Was skeptical at first but the vendors are real. Shipping was faster than expected.",
+  },
+  {
+    user: "DAVID S.",
+    initials: "DS",
+    date: "NOV 05, 2024",
+    text: "Excellent customer support. They helped me pick the right bundle for my budget.",
   }
 ];
 
@@ -45,10 +57,6 @@ export function SocialProofSection() {
 
           {/* Right Side Rating */}
           <div className="flex flex-col items-start md:items-end">
-            <div className="flex items-center gap-2 bg-white rounded-full px-3 py-1 mb-2 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                <CheckCircle className="w-4 h-4 text-green-500 fill-green-500/20" />
-                <span className="text-xs font-bold text-gray-800 uppercase tracking-wider">Google Guaranteed</span>
-            </div>
             <div className="text-5xl font-black text-white mb-1 tracking-tight">4.90</div>
             <div className="flex gap-1 mb-1">
                {[1, 2, 3, 4, 5].map((i) => (
@@ -60,13 +68,14 @@ export function SocialProofSection() {
         </div>
       </div>
 
-      {/* Reviews Grid */}
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.slice(0, 3).map((t, i) => (
+      {/* Reviews Auto-Scrolling Marquee */}
+      <div className="w-full overflow-hidden">
+        <div className="flex gap-6 animate-marquee w-max px-4">
+          {/* Duplicate testimonials to create seamless loop */}
+          {[...testimonials, ...testimonials].map((t, i) => (
             <div
               key={i}
-              className="bg-white text-black rounded-3xl p-8 flex flex-col gap-6 hover:scale-[1.02] transition-transform duration-300 shadow-xl"
+              className="w-[350px] md:w-[400px] bg-white text-black rounded-3xl p-8 flex flex-col gap-6 shadow-xl flex-shrink-0"
             >
               {/* Top: Stars and Date */}
               <div className="flex justify-between items-center">

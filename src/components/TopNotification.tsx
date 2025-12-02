@@ -12,7 +12,6 @@ export function TopNotification() {
       const currentYear = now.getFullYear();
       const targetDate = new Date(`December 24, ${currentYear} 00:00:00`);
       
-      // If Christmas has passed this year, target next year
       if (now.getTime() > targetDate.getTime()) {
         targetDate.setFullYear(currentYear + 1);
       }
@@ -39,14 +38,15 @@ export function TopNotification() {
     return () => clearInterval(timer);
   }, []);
 
-  return (
-    <div className="w-full bg-black/40 border-b border-white/5 py-[1.125rem] text-sm sm:text-base font-medium text-white flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 px-4 relative z-[60]">
-      <div className="flex items-center gap-3 text-green-400 animate-pulse">
+  // Content block to repeat
+  const Content = () => (
+    <div className="flex items-center justify-between gap-8 min-w-[800px] px-4">
+      <div className="flex items-center gap-3 text-green-400 animate-pulse whitespace-nowrap">
         <span className="text-2xl">🎄</span>
-        <span className="text-lg font-bold tracking-wide text-center">CHRISTMAS SALE LIVE – Limited Time Only</span>
+        <span className="text-lg font-bold tracking-wide">CHRISTMAS SALE LIVE – Limited Time Only</span>
       </div>
       
-      <div className="hidden lg:flex items-center gap-4">
+      <div className="flex items-center gap-4 whitespace-nowrap">
         <span className="text-gray-300 text-lg">46,303+ happy customers</span>
         <span className="text-green-400">•</span>
         <div className="flex items-center gap-2 text-yellow-400">
@@ -59,9 +59,19 @@ export function TopNotification() {
         </div>
       </div>
 
-      <div className="flex items-center gap-3 text-red-400 font-bold">
+      <div className="flex items-center gap-3 text-red-400 font-bold whitespace-nowrap">
         <Clock className="w-5 h-5" />
         <span>Ends in <span className="tabular-nums tracking-wider text-lg">{timeLeft}</span></span>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="w-full bg-black/40 border-b border-white/5 py-[1.125rem] text-sm sm:text-base font-medium text-white overflow-hidden relative z-[60]">
+      <div className="flex animate-marquee w-max">
+        {[...Array(4)].map((_, i) => (
+          <Content key={i} />
+        ))}
       </div>
     </div>
   );
