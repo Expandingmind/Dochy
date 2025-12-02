@@ -48,7 +48,7 @@ export function SocialProofSection() {
                 <span className="text-2xl font-bold text-white drop-shadow-md">{t.profit}</span>
             </div>
             <div className="text-left">
-              <p className="text-sm text-gray-300 mb-2">"{t.text}"</p>
+              <p className="text-sm text-gray-300 mb-2">&quot;{t.text}&quot;</p>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">{t.user}</p>
             </div>
           </div>
@@ -64,7 +64,7 @@ export function SocialProofSection() {
                 Start Your Reselling Career!
             </h3>
             <p className="text-lg text-gray-300 mb-8 relative z-10">
-                Get access to the world's best suppliers.
+                Get access to the world&apos;s best suppliers.
             </p>
             
             <Link 
