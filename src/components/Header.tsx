@@ -32,52 +32,57 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-        isScrolled ? "bg-background/80 backdrop-blur-md border-white/10 py-3" : "bg-background/0 backdrop-blur-sm py-5"
+        isScrolled ? "bg-background/80 backdrop-blur-md border-white/10 py-2" : "bg-background/0 backdrop-blur-sm py-4"
       )}
     >
-      <div className="container mx-auto px-4 relative flex items-center justify-between h-12">
-        {/* Left: Nav (Desktop) / Menu (Mobile) */}
-        <div className="flex-1 flex items-center justify-start">
-           <button
-            className="md:hidden text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+      <div className="container mx-auto px-4 flex flex-col items-center">
+        
+        {/* Top Row: Mobile Menu Toggle, Centered Logo, Cart */}
+        <div className="w-full flex items-center justify-between relative min-h-[48px]">
+          {/* Left: Mobile Toggle (Visible on Mobile only) */}
+          <div className="flex-1 flex justify-start md:hidden">
+             <button
+              className="text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
 
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-primary transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+          {/* Center: Logo */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+            <Link href="/">
+              <h1 className="text-4xl font-bold tracking-wider text-white font-anton uppercase whitespace-nowrap">
+                DOCHY
+              </h1>
+            </Link>
+          </div>
+
+          {/* Right: Cart */}
+          <div className="flex-1 flex items-center justify-end gap-4 z-50">
+            <Link href="/cart" className="relative group">
+              <ShoppingBag className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-primary text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full ring-2 ring-background">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+          </div>
         </div>
 
-        {/* Center: Logo */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <Link href="/" className="relative z-50">
-            <h1 className="text-4xl font-bold tracking-wider text-white font-anton uppercase">
-              DOCHY
-            </h1>
-          </Link>
-        </div>
-
-        {/* Right: Cart */}
-        <div className="flex-1 flex items-center justify-end gap-4 z-50">
-          <Link href="/cart" className="relative group">
-            <ShoppingBag className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
-            {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-primary text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full ring-2 ring-background">
-                {totalItems}
-              </span>
-            )}
-          </Link>
-        </div>
+        {/* Bottom Row: Desktop Navigation (Centered under Logo) */}
+        <nav className="hidden md:flex items-center gap-8 mt-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-sm font-bold text-gray-300 hover:text-primary transition-colors uppercase tracking-wide"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
 
         {/* Mobile Menu Overlay */}
         <div
