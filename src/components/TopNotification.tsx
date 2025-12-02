@@ -40,7 +40,7 @@ export function TopNotification() {
   }, []);
 
   return (
-    <div className="w-full bg-black/40 border-b border-white/5 py-6 text-sm sm:text-base font-medium text-white flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 px-4 relative z-[60]">
+    <div className="w-full bg-black/40 border-b border-white/5 py-[1.125rem] text-sm sm:text-base font-medium text-white flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 px-4 relative z-[60]">
       <div className="flex items-center gap-3 text-green-400 animate-pulse">
         <span className="text-2xl">🎄</span>
         <span className="text-lg font-bold tracking-wide text-center">CHRISTMAS SALE LIVE – Limited Time Only</span>
