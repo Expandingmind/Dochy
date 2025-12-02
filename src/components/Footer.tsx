@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Send, Mail, X } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { Modal } from "./Modal";
 
 export function Footer() {
   const [modalContent, setModalContent] = useState<"terms" | "privacy" | null>(null);
@@ -91,60 +91,29 @@ export function Footer() {
         </div>
       </footer>
 
-      {/* Legal Modal */}
-      {modalContent && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-          <div 
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm" 
-            onClick={() => setModalContent(null)} 
-          />
-          <div className="bg-[#0f0f13] border border-white/10 rounded-2xl w-full max-w-2xl max-h-[80vh] flex flex-col relative z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)] animate-in fade-in zoom-in duration-200">
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <h3 className="text-xl font-bold text-white font-anton uppercase tracking-wide">
-                {modalContent === "terms" ? "Terms of Service" : "Privacy Policy"}
-              </h3>
-              <button 
-                onClick={() => setModalContent(null)}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            
-            {/* Content */}
-            <div className="p-6 overflow-y-auto text-gray-300 text-sm leading-relaxed space-y-4">
-              {modalContent === "terms" ? (
-                <>
-                  <p><strong>1. Acceptance of Terms</strong><br/>By accessing and using the DOCHY website ("Service"), you accept and agree to be bound by the terms and provision of this agreement.</p>
-                  <p><strong>2. Digital Products</strong><br/>All products sold on DOCHY are digital goods (vendor lists, guides, bundles). Upon purchase, you will receive instant access to the digital content.</p>
-                  <p><strong>3. Refund Policy</strong><br/>Due to the nature of digital products, all sales are final. Once the digital content has been sent, we cannot offer refunds or exchanges. Please ensure you have selected the correct product before purchasing.</p>
-                  <p><strong>4. Usage Rights</strong><br/>The vendor lists and guides are for your personal use to help you start your reselling business. You may not resell, redistribute, or share the lists themselves.</p>
-                  <p><strong>5. Disclaimer</strong><br/>DOCHY provides vendor contacts but is not responsible for the business dealings between you and the vendors. We are not liable for any losses or damages arising from your use of the provided information.</p>
-                </>
-              ) : (
-                <>
-                  <p><strong>1. Information Collection</strong><br/>We collect information you provide directly to us, such as when you create an account, make a purchase, or contact customer support.</p>
-                  <p><strong>2. Use of Information</strong><br/>We use the information we collect to provide, maintain, and improve our services, process transactions, and send you related information including confirmations and receipts.</p>
-                  <p><strong>3. Data Security</strong><br/>We implement appropriate security measures to protect your personal information. We do not sell or trade your personal information to third parties.</p>
-                  <p><strong>4. Cookies</strong><br/>We use cookies to understand and save your preferences for future visits and compile aggregate data about site traffic and site interaction.</p>
-                  <p><strong>5. Updates</strong><br/>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
-                </>
-              )}
-            </div>
+      <Modal
+        isOpen={modalContent === "terms"}
+        onClose={() => setModalContent(null)}
+        title="Terms of Service"
+      >
+        <p><strong>1. Acceptance of Terms</strong><br/>By accessing and using the DOCHY website (&quot;Service&quot;), you accept and agree to be bound by the terms and provision of this agreement.</p>
+        <p><strong>2. Digital Products</strong><br/>All products sold on DOCHY are digital goods (vendor lists, guides, bundles). Upon purchase, you will receive instant access to the digital content.</p>
+        <p><strong>3. Refund Policy</strong><br/>Due to the nature of digital products, all sales are final. Once the digital content has been sent, we cannot offer refunds or exchanges. Please ensure you have selected the correct product before purchasing.</p>
+        <p><strong>4. Usage Rights</strong><br/>The vendor lists and guides are for your personal use to help you start your reselling business. You may not resell, redistribute, or share the lists themselves.</p>
+        <p><strong>5. Disclaimer</strong><br/>DOCHY provides vendor contacts but is not responsible for the business dealings between you and the vendors. We are not liable for any losses or damages arising from your use of the provided information.</p>
+      </Modal>
 
-            {/* Footer */}
-            <div className="p-6 border-t border-white/10 bg-[#0a0a0f] rounded-b-2xl">
-              <button
-                onClick={() => setModalContent(null)}
-                className="w-full py-3 bg-white hover:bg-gray-200 text-black font-bold rounded-full transition-colors uppercase tracking-wider text-sm"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <Modal
+        isOpen={modalContent === "privacy"}
+        onClose={() => setModalContent(null)}
+        title="Privacy Policy"
+      >
+        <p><strong>1. Information Collection</strong><br/>We collect information you provide directly to us, such as when you create an account, make a purchase, or contact customer support.</p>
+        <p><strong>2. Use of Information</strong><br/>We use the information we collect to provide, maintain, and improve our services, process transactions, and send you related information including confirmations and receipts.</p>
+        <p><strong>3. Data Security</strong><br/>We implement appropriate security measures to protect your personal information. We do not sell or trade your personal information to third parties.</p>
+        <p><strong>4. Cookies</strong><br/>We use cookies to understand and save your preferences for future visits and compile aggregate data about site traffic and site interaction.</p>
+        <p><strong>5. Updates</strong><br/>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+      </Modal>
     </>
   );
 }
