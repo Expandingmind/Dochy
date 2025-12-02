@@ -37,17 +37,26 @@ export function Hero() {
           </Link>
         </div>
 
-        <div className="mt-8 flex items-center gap-3 animate-fade-in-up delay-500 opacity-80 mb-16">
-          <div className="flex -space-x-3">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-gray-800 overflow-hidden">
-                 {/* Placeholder Avatar */}
-                 <div className={`w-full h-full bg-gradient-to-br from-gray-700 to-gray-900`} />
+        <div className="mt-10 flex items-center gap-4 animate-fade-in-up delay-500 mb-20 scale-110 md:scale-125 origin-center">
+          <div className="flex -space-x-5">
+            {[
+              "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=60",
+              "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&auto=format&fit=crop&q=60",
+              "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&auto=format&fit=crop&q=60",
+              "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=60",
+              "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&auto=format&fit=crop&q=60"
+            ].map((src, i) => (
+              <div key={i} className="w-12 h-12 rounded-full border-2 border-background overflow-hidden relative z-0">
+                 <img 
+                   src={src} 
+                   alt={`Member ${i}`}
+                   className="w-full h-full object-cover"
+                 />
               </div>
             ))}
           </div>
-          <span className="text-xl text-gray-400 font-bold">
-            Join 10,000+ resellers leveraging DOCHY vendors.
+          <span className="text-2xl font-medium text-white tracking-tight">
+            Join <span className="font-black">50,000+</span> Resellers
           </span>
         </div>
 
