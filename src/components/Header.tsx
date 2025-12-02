@@ -23,9 +23,8 @@ export function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Catalog", href: "#catalog" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Results", href: "#results" },
+    { name: "Catalog", href: "/items" },
+    { name: "Vendors", href: "/vendors" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -36,29 +35,40 @@ export function Header() {
         isScrolled ? "bg-background/80 backdrop-blur-md border-white/10 py-3" : "bg-background/0 backdrop-blur-sm py-5"
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="relative z-50">
-          <h1 className="text-2xl font-bold tracking-widest text-white neon-text font-sans">
-            DOCHY
-          </h1>
-        </Link>
+      <div className="container mx-auto px-4 relative flex items-center justify-between h-12">
+        {/* Left: Nav (Desktop) / Menu (Mobile) */}
+        <div className="flex-1 flex items-center justify-start">
+           <button
+            className="md:hidden text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-primary transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-gray-300 hover:text-primary transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-        {/* Cart & Mobile Menu Toggle */}
-        <div className="flex items-center gap-4 z-50">
+        {/* Center: Logo */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Link href="/" className="relative z-50">
+            <h1 className="text-4xl font-bold tracking-wider text-white font-anton uppercase">
+              DOCHY
+            </h1>
+          </Link>
+        </div>
+
+        {/* Right: Cart */}
+        <div className="flex-1 flex items-center justify-end gap-4 z-50">
           <Link href="/cart" className="relative group">
             <ShoppingBag className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
             {totalItems > 0 && (
@@ -67,19 +77,12 @@ export function Header() {
               </span>
             )}
           </Link>
-
-          <button
-            className="md:hidden text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
 
         {/* Mobile Menu Overlay */}
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-xl transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8",
+            "fixed inset-0 bg-background/95 backdrop-blur-xl transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8 z-[40]",
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
@@ -87,7 +90,7 @@ export function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-2xl font-bold text-white hover:text-primary"
+              className="text-2xl font-bold text-white hover:text-primary font-anton uppercase tracking-wide"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}
@@ -98,4 +101,3 @@ export function Header() {
     </header>
   );
 }
-

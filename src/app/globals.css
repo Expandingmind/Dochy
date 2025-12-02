@@ -19,6 +19,11 @@
       rgb(var(--background-start-rgb));
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  /* Custom Font Utility */
+  .font-anton {
+    font-family: var(--font-anton), sans-serif;
+  }
 }
 
 @layer utilities {
@@ -42,4 +47,3 @@
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)];
   }
 }
-
