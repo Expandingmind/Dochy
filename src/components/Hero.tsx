@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Package, Users } from "lucide-react";
 
 export function Hero() {
   return (
@@ -37,7 +37,7 @@ export function Hero() {
           </Link>
         </div>
 
-        <div className="mt-8 flex items-center gap-3 animate-fade-in-up delay-500 opacity-80">
+        <div className="mt-8 flex items-center gap-3 animate-fade-in-up delay-500 opacity-80 mb-16">
           <div className="flex -space-x-3">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-gray-800 overflow-hidden">
@@ -50,8 +50,54 @@ export function Hero() {
             Join 10,000+ resellers leveraging DOCHY vendors.
           </span>
         </div>
+
+        {/* Category Cards Island */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl animate-fade-in-up delay-700">
+          {/* Items Card */}
+          <div className="group relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/9] bg-black/40 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity" />
+             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
+             
+             <div className="absolute inset-0 p-8 flex flex-col justify-end items-start text-left z-10">
+                <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center mb-4 shadow-lg text-black">
+                   <Package className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black text-white uppercase mb-2">Items</h3>
+                <p className="text-gray-300 text-sm mb-6 max-w-sm">
+                  Explore our curated collection of high-demand bundles and individual items ready for resale.
+                </p>
+                <Link 
+                  href="/items"
+                  className="px-6 py-3 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:bg-gray-200 transition-colors"
+                >
+                  Explore Items <ArrowRight className="w-4 h-4" />
+                </Link>
+             </div>
+          </div>
+
+          {/* Vendors Card */}
+          <div className="group relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/9] bg-black/40 border border-white/10 hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.2)]">
+             <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity" />
+             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
+             
+             <div className="absolute inset-0 p-8 flex flex-col justify-end items-start text-left z-10">
+                <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center mb-4 shadow-lg text-black">
+                   <Users className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-black text-white uppercase mb-2">Vendors</h3>
+                <p className="text-gray-300 text-sm mb-6 max-w-sm">
+                  Connect directly with trusted manufacturers and suppliers to source your own inventory.
+                </p>
+                <Link 
+                  href="/vendors"
+                  className="px-6 py-3 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:bg-gray-200 transition-colors"
+                >
+                  Explore Vendors <ArrowRight className="w-4 h-4" />
+                </Link>
+             </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-
