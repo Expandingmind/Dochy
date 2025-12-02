@@ -33,9 +33,17 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-glow": "radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, rgba(5, 5, 9, 0) 70%)",
       },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      }
     },
   },
   plugins: [],
 };
 export default config;
-
