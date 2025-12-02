@@ -70,7 +70,7 @@ export function SocialProofSection() {
 
       {/* Reviews Auto-Scrolling Marquee */}
       <div className="w-full overflow-hidden">
-        <div className="flex gap-6 animate-marquee w-max px-4">
+        <div className="flex gap-6 animate-marquee w-max">
           {/* Duplicate testimonials to create seamless loop */}
           {[...testimonials, ...testimonials].map((t, i) => (
             <div

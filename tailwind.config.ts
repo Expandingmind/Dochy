@@ -34,12 +34,17 @@ const config: Config = {
         "hero-glow": "radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, rgba(5, 5, 9, 0) 70%)",
       },
       animation: {
-        marquee: 'marquee 25s linear infinite',
+        marquee: 'marquee 60s linear infinite',
+        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         }
       }
     },
