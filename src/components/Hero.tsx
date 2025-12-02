@@ -46,7 +46,7 @@ export function Hero() {
               </div>
             ))}
           </div>
-          <span className="text-sm text-gray-400 font-medium">
+          <span className="text-xl text-gray-400 font-bold">
             Join 10,000+ resellers leveraging DOCHY vendors.
           </span>
         </div>
