@@ -60,29 +60,26 @@ export function Hero() {
           </span>
         </div>
 
-        {/* Category Cards Island */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl animate-fade-in-up delay-700">
+        {/* Category Cards Island - Minimalistic Update */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl animate-fade-in-up delay-700">
           {/* Items Card */}
-          <div className="group relative rounded-3xl overflow-hidden min-h-[600px] bg-black/40 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)] flex flex-col">
-             {/* Top Image Area */}
-             <div className="h-1/2 bg-gradient-to-b from-primary/10 to-transparent relative flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
-                <div className="w-32 h-32 rounded-full bg-yellow-400/90 flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.4)] z-10 group-hover:scale-110 transition-transform duration-500">
-                   <Package className="w-16 h-16 text-black" />
-                </div>
-                {/* Decorative blurred circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/30 rounded-full blur-3xl -z-0" />
-             </div>
+          <div className="group relative rounded-3xl overflow-hidden bg-[#0a0a0f]/80 border border-white/[0.05] hover:border-primary/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(168,85,247,0.1)] flex flex-col items-center justify-center p-12 backdrop-blur-xl">
+             {/* Glowing ambient background */}
+             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/10 to-transparent opacity-50" />
              
-             {/* Bottom Content Area */}
-             <div className="h-1/2 p-8 flex flex-col justify-center items-center text-center bg-white/5 backdrop-blur-sm">
-                <h3 className="text-3xl font-black text-white uppercase mb-4 tracking-tight">Items</h3>
-                <p className="text-gray-300 text-base mb-8 max-w-sm leading-relaxed">
-                  Explore our curated collection of high-demand bundles and individual items ready for resale.
-                </p>
-                <Link 
+             <div className="relative z-10 flex flex-col items-center text-center">
+               <div className="w-24 h-24 rounded-full bg-yellow-400 flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.3)] mb-8 group-hover:scale-110 transition-transform duration-500">
+                   <Package className="w-12 h-12 text-black stroke-[1.5]" />
+               </div>
+               
+               <h3 className="text-2xl font-black text-white uppercase mb-4 tracking-tight">Items</h3>
+               <p className="text-gray-400 text-sm mb-10 max-w-xs leading-relaxed">
+                 Explore our curated collection of high-demand bundles and individual items ready for resale.
+               </p>
+               
+               <Link 
                   href="/items"
-                  className="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-full flex items-center gap-2 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                  className="px-8 py-3 bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-full flex items-center gap-2 transition-all hover:scale-105 shadow-lg shadow-primary/20"
                 >
                   EXPLORE ITEMS <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -90,26 +87,23 @@ export function Hero() {
           </div>
 
           {/* Vendors Card */}
-          <div className="group relative rounded-3xl overflow-hidden min-h-[600px] bg-black/40 border border-white/10 hover:border-secondary/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.2)] flex flex-col">
-             {/* Top Image Area */}
-             <div className="h-1/2 bg-gradient-to-b from-secondary/10 to-transparent relative flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20" />
-                <div className="w-32 h-32 rounded-full bg-yellow-400/90 flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.4)] z-10 group-hover:scale-110 transition-transform duration-500">
-                   <Users className="w-16 h-16 text-black" />
-                </div>
-                {/* Decorative blurred circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-secondary/30 rounded-full blur-3xl -z-0" />
-             </div>
+          <div className="group relative rounded-3xl overflow-hidden bg-[#0a0a0f]/80 border border-white/[0.05] hover:border-secondary/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(236,72,153,0.1)] flex flex-col items-center justify-center p-12 backdrop-blur-xl">
+             {/* Glowing ambient background */}
+             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-secondary/10 to-transparent opacity-50" />
              
-             {/* Bottom Content Area */}
-             <div className="h-1/2 p-8 flex flex-col justify-center items-center text-center bg-white/5 backdrop-blur-sm">
-                <h3 className="text-3xl font-black text-white uppercase mb-4 tracking-tight">Vendors</h3>
-                <p className="text-gray-300 text-base mb-8 max-w-sm leading-relaxed">
-                  Connect directly with trusted manufacturers and suppliers to source your own inventory.
-                </p>
-                <Link 
+             <div className="relative z-10 flex flex-col items-center text-center">
+               <div className="w-24 h-24 rounded-full bg-yellow-400 flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.3)] mb-8 group-hover:scale-110 transition-transform duration-500">
+                   <Users className="w-12 h-12 text-black stroke-[1.5]" />
+               </div>
+               
+               <h3 className="text-2xl font-black text-white uppercase mb-4 tracking-tight">Vendors</h3>
+               <p className="text-gray-400 text-sm mb-10 max-w-xs leading-relaxed">
+                 Connect directly with trusted manufacturers and suppliers to source your own inventory.
+               </p>
+               
+               <Link 
                   href="/vendors"
-                  className="px-8 py-4 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full flex items-center gap-2 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)]"
+                  className="px-8 py-3 bg-secondary hover:bg-secondary/90 text-white text-sm font-bold rounded-full flex items-center gap-2 transition-all hover:scale-105 shadow-lg shadow-secondary/20"
                 >
                   EXPLORE VENDORS <ArrowRight className="w-4 h-4" />
                 </Link>
