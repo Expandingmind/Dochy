@@ -40,48 +40,28 @@ export function TopNotification() {
   }, []);
 
   return (
-    <div className="w-full bg-black/40 border-b border-white/5 py-8 text-sm sm:text-base font-medium text-white overflow-hidden relative z-[60]">
-      <div className="animate-marquee whitespace-nowrap flex items-center gap-12 w-max px-4">
-        <div className="flex items-center gap-3 text-orange-400">
-          <span className="text-2xl">🎄</span>
-          <span className="text-lg font-bold tracking-wide">CHRISTMAS SALE LIVE – Limited Time Only</span>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          <span className="text-gray-300 text-lg">46,303+ happy customers</span>
-          <span className="text-orange-400">•</span>
-          <div className="flex items-center gap-2 text-yellow-400">
-            <span className="text-lg font-bold">Rated 4.9/5</span>
-            <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="w-4 h-4 fill-current" />
-              ))}
-            </div>
+    <div className="w-full bg-black/40 border-b border-white/5 py-6 text-sm sm:text-base font-medium text-white flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 px-4 relative z-[60]">
+      <div className="flex items-center gap-3 text-green-400 animate-pulse">
+        <span className="text-2xl">🎄</span>
+        <span className="text-lg font-bold tracking-wide text-center">CHRISTMAS SALE LIVE – Limited Time Only</span>
+      </div>
+      
+      <div className="hidden lg:flex items-center gap-4">
+        <span className="text-gray-300 text-lg">46,303+ happy customers</span>
+        <span className="text-green-400">•</span>
+        <div className="flex items-center gap-2 text-yellow-400">
+          <span className="text-lg font-bold">Rated 4.9/5</span>
+          <div className="flex gap-1">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <Star key={i} className="w-4 h-4 fill-current" />
+            ))}
           </div>
         </div>
+      </div>
 
-        <div className="flex items-center gap-3 text-red-400 font-bold">
-          <Clock className="w-5 h-5" />
-          <span>Ends in <span className="tabular-nums tracking-wider text-lg">{timeLeft}</span></span>
-        </div>
-
-        {/* Duplicate content for seamless feel (optional, but helps fill space) */}
-         <div className="flex items-center gap-3 text-orange-400">
-          <span className="text-2xl">🎄</span>
-          <span className="text-lg font-bold tracking-wide">CHRISTMAS SALE LIVE – Limited Time Only</span>
-        </div>
-         <div className="flex items-center gap-4">
-          <span className="text-gray-300 text-lg">46,303+ happy customers</span>
-           <span className="text-orange-400">•</span>
-           <div className="flex items-center gap-2 text-yellow-400">
-            <span className="text-lg font-bold">Rated 4.9/5</span>
-             <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={`dup-${i}`} className="w-4 h-4 fill-current" />
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className="flex items-center gap-3 text-red-400 font-bold">
+        <Clock className="w-5 h-5" />
+        <span>Ends in <span className="tabular-nums tracking-wider text-lg">{timeLeft}</span></span>
       </div>
     </div>
   );
