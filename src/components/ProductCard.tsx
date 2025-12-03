@@ -24,7 +24,11 @@ import {
   Truck, 
   Armchair,
   LucideIcon,
-  Package
+  Package,
+  Dumbbell,
+  Link,
+  Sparkles,
+  Crown
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -38,11 +42,11 @@ const iconMap: Record<string, LucideIcon> = {
   "labubuu-vendor": Ghost,
   "shoes-bundle": Footprints,
   "hoodies-vendor": Shirt,
-  "sweatpants-vendor": Shirt,
+  "sweatpants-vendor": Dumbbell, // Resembles activity/sweats more than a generic shirt
   "cologne-vendor": SprayCan,
-  "peps-vendor": Users,
+  "peps-vendor": Sparkles, // Peps usually means premium/reps/special
   "bags-vendor-bundle": ShoppingBag,
-  "bracelets-vendor": Circle,
+  "bracelets-vendor": Link, // Resembles chain links
   "moissanite-vendor": Gem,
   "phone-vendor": Smartphone,
   "watch-vendor": Watch,
@@ -57,6 +61,7 @@ const iconMap: Record<string, LucideIcon> = {
   "car-parts-vendor": Car,
   "shipping-services-vendor": Truck,
   "furniture-vendor": Armchair,
+  "resellers-empire": Crown
 };
 
 export function ProductCard({ product }: ProductCardProps) {
