@@ -41,7 +41,7 @@ export function Hero() {
         <div className="flex gap-4 md:gap-6 mt-6 w-full max-w-md md:max-w-3xl">
           <Link 
             href="/items"
-            className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all duration-300 hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.25)]"
+            className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all duration-300 hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
           >
             {/* Purple gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-purple-800/60 to-pink-900/80" />
@@ -55,7 +55,7 @@ export function Hero() {
 
           <Link 
             href="/vendors"
-            className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all duration-300 hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_40px_rgba(255,255,255,0.25)]"
+            className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all duration-300 hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
           >
             {/* Purple gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-blue-900/60 to-purple-800/80" />
