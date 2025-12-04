@@ -6,7 +6,7 @@ export function Hero() {
       <div className="container mx-auto px-3 flex flex-col items-center gap-4 z-10 max-w-4xl">
         
         <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-anton text-white tracking-wide max-w-3xl leading-[1.15] uppercase italic">
-          TURN YOUR HUSTLE INTO PROFIT TODAY.
+          TURN YOUR HUSTLE INTO PROFIT TODAY
         </h1>
 
         <div className="flex items-center gap-3 mt-4">
