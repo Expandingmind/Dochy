@@ -79,9 +79,9 @@ export function ProductCard({ product }: ProductCardProps) {
   const Icon = iconMap[product.id] || (product.type === 'bundle' ? Package : Zap);
 
   return (
-    <div className="group flex flex-col">
-      {/* Image Card with Gradient Background - Sharp corners */}
-      <div className="relative aspect-square rounded-sm md:rounded-none overflow-hidden mb-3 md:mb-4 border border-white/10">
+    <div className="group relative flex flex-col bg-[#0a0a0f] border border-purple-900/50 overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:border-purple-500/50">
+      {/* Image Section with Gradient Background */}
+      <div className="relative aspect-square overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900 opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -89,7 +89,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Sale Badge */}
         {product.badge && (
           <div className={cn(
-            "absolute top-3 left-3 text-white text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-md z-20 uppercase",
+            "absolute top-4 left-4 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-lg z-20 uppercase",
             product.badge === "BEST DEAL" ? "bg-purple-600" : "bg-purple-600"
           )}>
             {product.badge === "BEST DEAL" ? "Best Deal" : "Sale"}
@@ -112,25 +112,25 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Product Info Below Card */}
-      <div className="text-center">
-        <h4 className="text-xs md:text-sm font-bold text-white uppercase mb-2 tracking-wide line-clamp-2 leading-tight">
+      {/* Product Info Section - Inside same card */}
+      <div className="flex flex-col flex-1 p-4 md:p-5 bg-[#0a0a0f]">
+        <h4 className="text-xs md:text-sm font-bold text-white uppercase mb-2 tracking-wide line-clamp-2 leading-tight text-center">
           {product.name}
         </h4>
         
-        <div className="flex items-center justify-center gap-2 mb-3">
+        <div className="flex items-center justify-center gap-2 mb-4">
           <span className="text-xs md:text-sm text-gray-500 line-through">
             ${product.originalPrice} USD
           </span>
-          <span className="text-base md:text-xl font-bold text-white">
+          <span className="text-lg md:text-2xl font-bold text-white">
             ${product.price}
           </span>
         </div>
 
-        {/* Buttons - keep rounded for better UX */}
-        <div className="space-y-2">
+        {/* Buttons */}
+        <div className="space-y-2 mt-auto">
           <button 
-            className="w-full py-2.5 md:py-3 rounded-full bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/10"
+            className="w-full py-3 md:py-3.5 rounded-full bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/10"
             onClick={() => alert(`Details for ${product.name}: ${product.description}`)}
           >
             DETAILS +
@@ -139,7 +139,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             onClick={handleAddToCart}
             className={cn(
-              "w-full py-3 md:py-3.5 rounded-full font-bold text-xs md:text-sm uppercase tracking-wide transition-all",
+              "w-full py-3.5 md:py-4 rounded-full font-bold text-xs md:text-sm uppercase tracking-wide transition-all",
               isAdded 
                 ? "bg-green-500 text-white"
                 : "bg-purple-600 hover:bg-purple-500 text-white"
