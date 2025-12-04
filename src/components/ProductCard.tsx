@@ -130,7 +130,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Buttons */}
         <div className="space-y-2 mt-auto">
           <button 
-            className="w-full py-3 md:py-3.5 rounded-full bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/10"
+            className="w-full py-3 md:py-3.5 rounded-full bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)]"
             onClick={() => alert(`Details for ${product.name}: ${product.description}`)}
           >
             DETAILS +
@@ -141,8 +141,8 @@ export function ProductCard({ product }: ProductCardProps) {
             className={cn(
               "w-full py-3.5 md:py-4 rounded-full font-bold text-xs md:text-sm uppercase tracking-wide transition-all",
               isAdded 
-                ? "bg-green-500 text-white"
-                : "bg-purple-600 hover:bg-purple-500 text-white"
+                ? "bg-green-500 text-white shadow-[0_0_25px_rgba(34,197,94,0.5)]"
+                : "bg-purple-600 hover:bg-purple-500 text-white hover:shadow-[0_0_25px_rgba(255,255,255,0.35)]"
             )}
           >
             {isAdded ? "Added!" : "BUY NOW"}
