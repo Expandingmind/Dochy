@@ -21,7 +21,7 @@ export function ProductGrid({ initialFilter = "All", title }: ProductGridProps) 
 
   return (
     <section id="catalog" className="py-8 md:py-12 bg-black">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-16 lg:px-24">
         {title && (
           <h2 className="text-xl md:text-3xl font-bold text-white text-center mb-8">
             {title}
