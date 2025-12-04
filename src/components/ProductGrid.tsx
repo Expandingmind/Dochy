@@ -20,15 +20,15 @@ export function ProductGrid({ initialFilter = "All", title }: ProductGridProps) 
   });
 
   return (
-    <section id="catalog" className="py-12 bg-black">
-      <div className="container mx-auto px-4">
+    <section id="catalog" className="py-6 md:py-10 bg-black">
+      <div className="container mx-auto px-2 md:px-4">
         {title && (
-          <h2 className="text-2xl md:text-4xl font-bold text-white text-center mb-10">
+          <h2 className="text-lg md:text-2xl font-bold text-white text-center mb-6">
             {title}
           </h2>
         )}
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* Grid - More columns on larger screens */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 md:gap-4">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

@@ -55,60 +55,60 @@ export function TopNotification() {
   }, []);
 
   const Content = () => (
-    <div className="flex items-center gap-8 whitespace-nowrap">
+    <div className="flex items-center gap-6 whitespace-nowrap">
       {/* Rating */}
-      <div className="flex items-center gap-2">
-        <span className="font-bold">Rated 4.98/5</span>
+      <div className="flex items-center gap-1.5">
+        <span className="font-bold text-xs">Rated 4.98/5</span>
         <div className="flex gap-0.5">
           {[1, 2, 3, 4, 5].map((i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+            <Star key={i} className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
           ))}
         </div>
       </div>
 
       {/* Best Vendors */}
-      <div className="flex items-center gap-2 text-yellow-500">
+      <div className="flex items-center gap-1.5 text-yellow-500">
         <span>🏆</span>
-        <span className="font-bold">Best Vendors In The Game</span>
+        <span className="font-bold text-xs">Best Vendors In The Game</span>
         <span>🏆</span>
       </div>
 
       {/* Shopping Now */}
-      <div className="flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+      <div className="flex items-center gap-1.5 text-xs">
+        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
         <span><span className="text-green-400 font-bold">{shoppingNow}</span> shopping now</span>
       </div>
 
       {/* Sale Live */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5 text-xs">
         <span>🎄</span>
         <span className="text-green-400 font-bold">CHRISTMAS SALE LIVE</span>
         <span>🎄</span>
       </div>
 
       {/* Countdown */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5 text-xs">
         <span>Ends Dec 24th:</span>
         {isEnded ? (
-          <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">ENDED</span>
+          <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">ENDED</span>
         ) : (
-          <span className="font-mono font-bold text-white">{timeLeft}</span>
+          <span className="font-mono font-bold text-white text-[10px]">{timeLeft}</span>
         )}
       </div>
 
       {/* Happy Customers */}
-      <div className="flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-green-500" />
+      <div className="flex items-center gap-1.5 text-xs">
+        <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
         <span><span className="text-green-400 font-bold">46,303</span> happy customers</span>
       </div>
     </div>
   );
 
   return (
-    <div className="w-full bg-black border-b border-white/10 py-3 text-sm font-medium text-white overflow-hidden relative z-[60]">
+    <div className="w-full bg-black border-b border-white/10 py-2 text-xs font-medium text-white overflow-hidden relative z-[60]">
       <div className="flex animate-marquee w-max">
         {[...Array(6)].map((_, i) => (
-          <div key={i} className="mx-8">
+          <div key={i} className="mx-6">
             <Content />
           </div>
         ))}
