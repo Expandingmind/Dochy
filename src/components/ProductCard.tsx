@@ -81,8 +81,8 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="group relative flex flex-col bg-[#0a0a0f] border border-purple-900/50 overflow-hidden transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:border-purple-500/50">
-      {/* Image Section with Gradient Background */}
-      <div className="relative aspect-square overflow-hidden">
+      {/* Image Section with Gradient Background - Clickable */}
+      <Link href={`/product/${product.id}`} className="relative aspect-square overflow-hidden cursor-pointer block">
         {/* Galaxy Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-800 via-fuchsia-700 to-indigo-900" />
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-transparent to-pink-600/50" />
@@ -112,7 +112,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.name}
           </h3>
         </div>
-      </div>
+      </Link>
 
       {/* Product Info Section - Inside same card */}
       <div className="flex flex-col flex-1 p-4 md:p-5 bg-[#0a0a0f]">
