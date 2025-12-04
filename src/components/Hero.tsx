@@ -43,9 +43,10 @@ export function Hero() {
             href="/items"
             className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all duration-300 hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
           >
-            {/* Purple gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-purple-800/60 to-pink-900/80" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            {/* Galaxy gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-violet-800 via-fuchsia-700 to-indigo-900" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/60 via-transparent to-pink-500/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
             
             <div className="relative z-10 w-12 h-12 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
               <Package className="w-6 h-6 md:w-10 md:h-10 text-white" />
@@ -57,9 +58,10 @@ export function Hero() {
             href="/vendors"
             className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all duration-300 hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
           >
-            {/* Purple gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-blue-900/60 to-purple-800/80" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            {/* Galaxy gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-violet-700 to-fuchsia-800" />
+            <div className="absolute inset-0 bg-gradient-to-tl from-cyan-700/40 via-transparent to-pink-600/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
             
             <div className="relative z-10 w-12 h-12 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
               <Users className="w-6 h-6 md:w-10 md:h-10 text-white" />

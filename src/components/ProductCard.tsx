@@ -82,9 +82,10 @@ export function ProductCard({ product }: ProductCardProps) {
     <div className="group relative flex flex-col bg-[#0a0a0f] border border-purple-900/50 overflow-hidden transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:border-purple-500/50">
       {/* Image Section with Gradient Background */}
       <div className="relative aspect-square overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900 opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        {/* Galaxy Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-800 via-fuchsia-700 to-indigo-900" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-transparent to-pink-600/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/20 to-black/70" />
         
         {/* Sale Badge */}
         {product.badge && (
