@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
@@ -130,12 +131,12 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Buttons */}
         <div className="space-y-2 mt-auto">
-          <button 
-            className="w-full py-3 md:py-3.5 rounded-full bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/10 hover:shadow-[0_0_35px_rgba(255,255,255,0.5)]"
-            onClick={() => alert(`Details for ${product.name}: ${product.description}`)}
+          <Link 
+            href={`/product/${product.id}`}
+            className="block w-full py-3 md:py-3.5 rounded-full bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/10 hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] text-center"
           >
             DETAILS +
-          </button>
+          </Link>
           
           <button
             onClick={handleAddToCart}
