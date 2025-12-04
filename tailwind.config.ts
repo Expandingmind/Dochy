@@ -9,17 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050509", // Dark black background
+        background: "#000000",
         primary: {
-          DEFAULT: "#a855f7", // Purple 500
+          DEFAULT: "#a855f7",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#ec4899", // Pink 500
+          DEFAULT: "#ec4899",
           foreground: "#ffffff",
         },
         accent: {
-          DEFAULT: "#d946ef", // Fuchsia 500
+          DEFAULT: "#d946ef",
           foreground: "#ffffff",
         },
         card: {
@@ -34,9 +34,11 @@ const config: Config = {
         "hero-glow": "radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, rgba(5, 5, 9, 0) 70%)",
       },
       animation: {
-        marquee: 'marquee 60s linear infinite',
-        'marquee-reverse': 'marqueeReverse 60s linear infinite',
+        marquee: 'marquee 40s linear infinite',
+        'marquee-reverse': 'marqueeReverse 40s linear infinite',
         'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+        'slide-in-left': 'slideInLeft 0.4s ease-out forwards',
+        'slide-out-left': 'slideOutLeft 0.4s ease-out forwards',
       },
       keyframes: {
         marquee: {
@@ -50,6 +52,14 @@ const config: Config = {
         fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-100%)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideOutLeft: {
+          '0%': { opacity: '1', transform: 'translateX(0)' },
+          '100%': { opacity: '0', transform: 'translateX(-100%)' },
         }
       }
     },

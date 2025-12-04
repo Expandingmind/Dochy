@@ -1,10 +1,24 @@
 "use client";
 
-import { Star, Clock } from "lucide-react";
+import { Star } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export function TopNotification() {
+  const [shoppingNow, setShoppingNow] = useState(71);
   const [timeLeft, setTimeLeft] = useState("");
+  const [isEnded, setIsEnded] = useState(false);
+
+  useEffect(() => {
+    // Simulate live shoppers count
+    const interval = setInterval(() => {
+      setShoppingNow(prev => {
+        const change = Math.floor(Math.random() * 11) - 5; // -5 to +5
+        return Math.max(50, Math.min(150, prev + change));
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -13,7 +27,8 @@ export function TopNotification() {
       const targetDate = new Date(`December 24, ${currentYear} 00:00:00`);
       
       if (now.getTime() > targetDate.getTime()) {
-        targetDate.setFullYear(currentYear + 1);
+        setIsEnded(true);
+        return "ENDED";
       }
 
       const difference = targetDate.getTime() - now.getTime();
@@ -26,7 +41,8 @@ export function TopNotification() {
 
         return `${String(days).padStart(2, "0")}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
       }
-      return "SALE ENDED";
+      setIsEnded(true);
+      return "ENDED";
     };
 
     const timer = setInterval(() => {
@@ -38,39 +54,63 @@ export function TopNotification() {
     return () => clearInterval(timer);
   }, []);
 
-  // Content block to repeat
   const Content = () => (
-    <div className="flex items-center justify-between gap-8 min-w-[800px] px-4">
-      <div className="flex items-center gap-3 text-green-400 animate-pulse whitespace-nowrap">
-        <span className="text-2xl">🎄</span>
-        <span className="text-lg font-bold tracking-wide">CHRISTMAS SALE LIVE – Limited Time Only</span>
-      </div>
-      
-      <div className="flex items-center gap-4 whitespace-nowrap">
-        <span className="text-gray-300 text-lg">46,303+ happy customers</span>
-        <span className="text-green-400">•</span>
-        <div className="flex items-center gap-2 text-yellow-400">
-          <span className="text-lg font-bold">Rated 4.9/5</span>
-          <div className="flex gap-1">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <Star key={i} className="w-4 h-4 fill-current" />
-            ))}
-          </div>
+    <div className="flex items-center gap-8 whitespace-nowrap">
+      {/* Rating */}
+      <div className="flex items-center gap-2">
+        <span className="font-bold">Rated 4.98/5</span>
+        <div className="flex gap-0.5">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+          ))}
         </div>
       </div>
 
-      <div className="flex items-center gap-3 text-red-400 font-bold whitespace-nowrap">
-        <Clock className="w-5 h-5" />
-        <span>Ends in <span className="tabular-nums tracking-wider text-lg">{timeLeft}</span></span>
+      {/* Best Vendors */}
+      <div className="flex items-center gap-2 text-yellow-500">
+        <span>🏆</span>
+        <span className="font-bold">Best Vendors In The Game</span>
+        <span>🏆</span>
+      </div>
+
+      {/* Shopping Now */}
+      <div className="flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+        <span><span className="text-green-400 font-bold">{shoppingNow}</span> shopping now</span>
+      </div>
+
+      {/* Sale Live */}
+      <div className="flex items-center gap-2">
+        <span>🎄</span>
+        <span className="text-green-400 font-bold">CHRISTMAS SALE LIVE</span>
+        <span>🎄</span>
+      </div>
+
+      {/* Countdown */}
+      <div className="flex items-center gap-2">
+        <span>Ends Dec 24th:</span>
+        {isEnded ? (
+          <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">ENDED</span>
+        ) : (
+          <span className="font-mono font-bold text-white">{timeLeft}</span>
+        )}
+      </div>
+
+      {/* Happy Customers */}
+      <div className="flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-green-500" />
+        <span><span className="text-green-400 font-bold">46,303</span> happy customers</span>
       </div>
     </div>
   );
 
   return (
-    <div className="w-full bg-black/40 border-b border-white/5 py-[1.125rem] text-sm sm:text-base font-medium text-white overflow-hidden relative z-[60]">
+    <div className="w-full bg-black border-b border-white/10 py-3 text-sm font-medium text-white overflow-hidden relative z-[60]">
       <div className="flex animate-marquee w-max">
-        {[...Array(4)].map((_, i) => (
-          <Content key={i} />
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="mx-8">
+            <Content />
+          </div>
         ))}
       </div>
     </div>

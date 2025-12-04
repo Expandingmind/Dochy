@@ -3,7 +3,7 @@ import { Inter, Anton } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { TopNotification } from "@/components/TopNotification";
-import { Footer } from "@/components/Footer";
+import { LivePurchaseNotification } from "@/components/LivePurchaseNotification";
 
 const inter = Inter({ subsets: ["latin"] });
 const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton" });
@@ -27,13 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} ${anton.variable} bg-background text-white antialiased`}>
+      <body className={`${inter.className} ${anton.variable} bg-black text-white antialiased`}>
         <TopNotification />
         <Header />
-        <main className="min-h-screen">
+        <main>
           {children}
         </main>
-        <Footer />
+        <LivePurchaseNotification />
       </body>
     </html>
   );

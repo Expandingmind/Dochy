@@ -1,11 +1,16 @@
 import { Hero } from "@/components/Hero";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ProductGrid } from "@/components/ProductGrid";
+import { FAQSection } from "@/components/FAQSection";
+import { ProofSection, CTASection } from "@/components/ProofSection";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <SocialProofSection />
+      <ProductGrid />
+      <FAQSection />
+      <ProofSection />
+      <CTASection />
     </>
   );
 }

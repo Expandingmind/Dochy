@@ -35,27 +35,27 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-28">
+    <section id="faq" className="py-16 bg-black">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-3xl font-bold text-white text-center mb-12 tracking-wide">
+        <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">
           Frequently Asked Questions
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="bg-[#0f0f13] rounded-xl overflow-hidden transition-all duration-300"
+              className="bg-[#0f0f13] rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors"
               >
-                <span className="text-base font-bold text-gray-200">{faq.question}</span>
+                <span className="text-sm md:text-base font-medium text-gray-200">{faq.question}</span>
                 <ChevronDown
                   className={cn(
-                    "w-5 h-5 text-primary/70 transition-transform duration-300",
-                    openIndex === i ? "rotate-180 text-primary" : "rotate-0"
+                    "w-5 h-5 text-gray-500 transition-transform duration-300 flex-shrink-0 ml-4",
+                    openIndex === i ? "rotate-180" : "rotate-0"
                   )}
                 />
               </button>
