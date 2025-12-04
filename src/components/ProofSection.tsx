@@ -2,69 +2,95 @@
 
 import Link from "next/link";
 
-const proofImages = [
+const proofCards = [
   {
     id: 1,
-    type: "chat",
-    content: "My Biggest bulk sale ever 20 colognes, 10 AirPods",
-    subtext: "Holyyyy good sh*t bro enjoy that $",
+    image: "💵",
+    mainText: "2 easy 5k didn't not all fit in pic got 1 AirPod left",
+    reply: "Damn bro getting too rich 🤣 Happy for you",
   },
   {
     id: 2,
-    type: "balance",
-    amount: "$5,688.25",
-    subtext: "Turning this into 20k this year trust",
-    comment: "Only 14 year old with 6000",
+    image: "💰",
+    mainText: "Made my first $4000 reselling super grateful for finding your page",
+    reply: "Good shit bro proud of you 🤝",
   },
   {
     id: 3,
-    type: "stats",
-    amount: "$2,095",
-    subtext: "Already at 2k in sales",
-    comment: "Yessirr 💪",
+    image: "🤑",
+    mainText: "Nice lil $400 day",
+    reply: "",
   },
   {
     id: 4,
-    type: "money",
-    subtext: "$1700 for the week not bad for a 15 year old 😊",
-    comment: "Not bad",
+    image: "💸",
+    mainText: "$1700 for the week not bad for a 15 year old 😊",
+    reply: "Keep going bro 🔥",
+  },
+  {
+    id: 5,
+    image: "🏦",
+    mainText: "Just hit 10k this month from the cologne vendors alone",
+    reply: "That's insane bro congrats 💪",
+  },
+  {
+    id: 6,
+    image: "💵",
+    mainText: "First bulk order came in, 50 hoodies ready to flip",
+    reply: "Let's gooo 🚀",
   },
 ];
 
+function ProofCard({ card }: { card: typeof proofCards[0] }) {
+  return (
+    <div className="w-[280px] md:w-[320px] flex-shrink-0 bg-[#0a0a0f] rounded-2xl overflow-hidden border border-white/5">
+      {/* Image area */}
+      <div className="aspect-[4/3] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center relative">
+        <span className="text-6xl">{card.image}</span>
+        {/* Fake DM indicator */}
+        <div className="absolute top-3 right-3 bg-black/60 rounded-full p-1.5">
+          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      
+      {/* Chat messages */}
+      <div className="p-3 space-y-2">
+        <div className="flex items-start gap-2">
+          <div className="w-6 h-6 rounded-full bg-gray-700 flex-shrink-0" />
+          <div className="bg-[#1a1a1f] rounded-2xl rounded-tl-sm px-3 py-2 max-w-[85%]">
+            <p className="text-white text-xs leading-relaxed">{card.mainText}</p>
+          </div>
+          <span className="text-red-500 text-xs">❤️</span>
+        </div>
+        
+        {card.reply && (
+          <div className="flex items-start gap-2 justify-end">
+            <div className="bg-[#3b3b45] rounded-2xl rounded-tr-sm px-3 py-2 max-w-[85%]">
+              <p className="text-white text-xs leading-relaxed">{card.reply}</p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function ProofSection() {
   return (
-    <section className="py-10 bg-black">
-      <div className="container mx-auto px-3">
-        <h2 className="text-lg md:text-2xl font-bold text-white text-center mb-6">
+    <section className="py-10 bg-black overflow-hidden">
+      <div className="container mx-auto px-3 mb-6">
+        <h2 className="text-lg md:text-2xl font-bold text-white text-center">
           Proof Its Not That Hard...
         </h2>
+      </div>
 
-        {/* Proof Grid - Compact */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 max-w-5xl mx-auto">
-          {proofImages.map((proof) => (
-            <div 
-              key={proof.id}
-              className="bg-[#0a0a0f] rounded-lg overflow-hidden border border-white/5 hover:border-white/10 transition-colors"
-            >
-              {/* Compact proof card */}
-              <div className="aspect-[4/5] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-3">
-                <div className="text-center">
-                  {proof.amount && (
-                    <div className="text-lg md:text-xl font-bold text-white mb-1">
-                      {proof.amount}
-                    </div>
-                  )}
-                  <p className="text-[10px] md:text-xs text-gray-400 leading-tight">
-                    {proof.subtext}
-                  </p>
-                  {proof.comment && (
-                    <div className="mt-2 text-[9px] md:text-[10px] text-gray-500 bg-black/50 rounded-full px-2 py-0.5 inline-block">
-                      {proof.comment}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+      {/* Scrolling Proof Cards */}
+      <div className="w-full overflow-hidden">
+        <div className="flex gap-4 animate-marquee-reverse w-max">
+          {[...proofCards, ...proofCards, ...proofCards, ...proofCards].map((card, i) => (
+            <ProofCard key={`proof-${i}`} card={card} />
           ))}
         </div>
       </div>
@@ -84,7 +110,7 @@ export function CTASection() {
         </p>
         
         <Link 
-          href="#catalog"
+          href="/items"
           className="inline-block px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg text-sm md:text-base transition-all hover:scale-105"
         >
           Get Access

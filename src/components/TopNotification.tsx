@@ -92,7 +92,7 @@ export function TopNotification() {
         {isEnded ? (
           <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">ENDED</span>
         ) : (
-          <span className="font-mono font-bold text-white text-[10px]">{timeLeft}</span>
+          <span className="bg-green-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">{timeLeft}</span>
         )}
       </div>
 
@@ -105,7 +105,7 @@ export function TopNotification() {
   );
 
   return (
-    <div className="w-full bg-black border-b border-white/10 py-2 text-xs font-medium text-white overflow-hidden relative z-[60]">
+    <div className="fixed top-0 left-0 right-0 w-full bg-black border-b border-white/10 py-2 text-xs font-medium text-white overflow-hidden z-[100]">
       <div className="flex animate-marquee w-max">
         {[...Array(6)].map((_, i) => (
           <div key={i} className="mx-6">
