@@ -105,7 +105,7 @@ export function TopNotification() {
   );
 
   return (
-    <div className="fixed top-0 left-0 right-0 w-full bg-black border-b border-white/10 py-2 text-xs font-medium text-white overflow-hidden z-[100]">
+    <div className="fixed top-0 left-0 right-0 w-full bg-black border-b border-white/10 py-3 text-xs font-medium text-white overflow-hidden z-[100]">
       <div className="flex animate-marquee w-max">
         {[...Array(6)].map((_, i) => (
           <div key={i} className="mx-6">

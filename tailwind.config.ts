@@ -39,6 +39,7 @@ const config: Config = {
         'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
         'slide-in-left': 'slideInLeft 0.4s ease-out forwards',
         'slide-out-left': 'slideOutLeft 0.4s ease-out forwards',
+        'gradient-shift': 'gradientShift 3s ease infinite',
       },
       keyframes: {
         marquee: {
@@ -60,6 +61,10 @@ const config: Config = {
         slideOutLeft: {
           '0%': { opacity: '1', transform: 'translateX(0)' },
           '100%': { opacity: '0', transform: 'translateX(-100%)' },
+        },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         }
       }
     },

@@ -30,11 +30,11 @@ export function Header() {
   return (
     <>
       {/* Spacer for fixed top notification */}
-      <div className="h-8" />
+      <div className="h-10" />
       
       <header
         className={cn(
-          "sticky top-8 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
+          "sticky top-10 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
           isScrolled ? "bg-black/90 backdrop-blur-md border-white/10 py-2" : "bg-black py-4"
         )}
       >
@@ -55,10 +55,10 @@ export function Header() {
             {/* Left placeholder for desktop */}
             <div className="flex-1 hidden md:block" />
 
-            {/* Center: Logo */}
+            {/* Center: Logo with Marbling Effect */}
             <div className="z-50">
               <Link href="/">
-                <h1 className="text-xl md:text-2xl font-bold tracking-wider text-white font-anton uppercase">
+                <h1 className="text-xl md:text-2xl font-bold tracking-wider font-anton uppercase bg-gradient-to-r from-purple-400 via-pink-400 via-blue-400 via-purple-500 to-pink-400 bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
                   DOCHY
                 </h1>
               </Link>

@@ -7,10 +7,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <ReviewsSection />
       <FAQSection />
       <ProofSection />
       <CTASection />
+      <ReviewsSection />
     </>
   );
 }
