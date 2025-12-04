@@ -32,6 +32,7 @@ import {
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface ProductCardProps {
   product: Product;
@@ -70,19 +71,29 @@ const iconMap: Record<string, LucideIcon> = {
 export function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
   const [isAdded, setIsAdded] = useState(false);
+  const router = useRouter();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     addItem(product);
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
   };
 
+  const handleCardClick = () => {
+    router.push(`/product/${product.id}`);
+  };
+
   const Icon = iconMap[product.id] || (product.type === 'bundle' ? Package : Zap);
 
   return (
-    <div className="group relative flex flex-col bg-[#0a0a0f] border border-purple-900/50 overflow-hidden transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:border-purple-500/50">
-      {/* Image Section with Gradient Background - Clickable */}
-      <Link href={`/product/${product.id}`} className="relative aspect-square overflow-hidden cursor-pointer block">
+    <div 
+      onClick={handleCardClick}
+      className="group relative flex flex-col bg-[#0a0a0f] border border-purple-900/50 overflow-hidden transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:border-purple-500/50 cursor-pointer"
+    >
+      {/* Image Section with Gradient Background */}
+      <div className="relative aspect-square overflow-hidden">
         {/* Galaxy Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-800 via-fuchsia-700 to-indigo-900" />
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-transparent to-pink-600/50" />
@@ -112,7 +123,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.name}
           </h3>
         </div>
-      </Link>
+      </div>
 
       {/* Product Info Section - Inside same card */}
       <div className="flex flex-col flex-1 p-4 md:p-5 bg-[#0a0a0f]">
@@ -131,12 +142,11 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Buttons */}
         <div className="space-y-2 mt-auto">
-          <Link 
-            href={`/product/${product.id}`}
+          <div 
             className="block w-full py-3 md:py-3.5 rounded-full bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/10 hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] text-center"
           >
             DETAILS +
-          </Link>
+          </div>
           
           <button
             onClick={handleAddToCart}
