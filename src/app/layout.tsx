@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { TopNotification } from "@/components/TopNotification";
 import { LivePurchaseNotification } from "@/components/LivePurchaseNotification";
+import { RefreshRedirect } from "@/components/RefreshRedirect";
 
 const inter = Inter({ subsets: ["latin"] });
 const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton" });
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} ${anton.variable} bg-black text-white antialiased`}>
+        <RefreshRedirect />
         <TopNotification />
         <Header />
         <main>
