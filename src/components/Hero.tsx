@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Package, Users } from "lucide-react";
 
 export function Hero() {
   return (
@@ -32,12 +33,32 @@ export function Hero() {
           </span>
         </div>
 
-        <Link 
-          href="#catalog"
-          className="text-gray-400 hover:text-white transition-colors mt-2 text-sm"
-        >
+        <span className="text-gray-400 mt-2 text-sm">
           see more
-        </Link>
+        </span>
+
+        {/* Category Boxes */}
+        <div className="flex gap-4 mt-6 w-full max-w-md">
+          <Link 
+            href="/items"
+            className="flex-1 bg-[#111114] hover:bg-[#1a1a1f] border border-white/10 hover:border-purple-500/50 rounded-xl p-6 flex flex-col items-center gap-3 transition-all hover:scale-[1.02] group"
+          >
+            <div className="w-12 h-12 rounded-full bg-purple-600/20 flex items-center justify-center group-hover:bg-purple-600/30 transition-colors">
+              <Package className="w-6 h-6 text-purple-400" />
+            </div>
+            <span className="text-white font-bold text-sm uppercase tracking-wide">Items</span>
+          </Link>
+
+          <Link 
+            href="/vendors"
+            className="flex-1 bg-[#111114] hover:bg-[#1a1a1f] border border-white/10 hover:border-purple-500/50 rounded-xl p-6 flex flex-col items-center gap-3 transition-all hover:scale-[1.02] group"
+          >
+            <div className="w-12 h-12 rounded-full bg-purple-600/20 flex items-center justify-center group-hover:bg-purple-600/30 transition-colors">
+              <Users className="w-6 h-6 text-purple-400" />
+            </div>
+            <span className="text-white font-bold text-sm uppercase tracking-wide">Vendors</span>
+          </Link>
+        </div>
       </div>
     </section>
   );
