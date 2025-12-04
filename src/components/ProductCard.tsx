@@ -81,7 +81,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="group flex flex-col">
       {/* Image Card with Gradient Background */}
-      <div className="relative aspect-square rounded-xl overflow-hidden mb-2 md:mb-3">
+      <div className="relative aspect-square rounded-2xl overflow-hidden mb-3 md:mb-4">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900 opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -89,7 +89,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Sale Badge */}
         {product.badge && (
           <div className={cn(
-            "absolute top-2 left-2 text-white text-[10px] font-bold px-2 py-1 rounded-md z-20 uppercase",
+            "absolute top-3 left-3 text-white text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-lg z-20 uppercase",
             product.badge === "BEST DEAL" ? "bg-purple-600" : "bg-purple-600"
           )}>
             {product.badge === "BEST DEAL" ? "Best Deal" : "Sale"}
@@ -100,13 +100,13 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="absolute inset-0 flex items-center justify-center">
           <Icon 
             strokeWidth={1}
-            className="w-14 h-14 md:w-20 md:h-20 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] group-hover:scale-110 transition-transform duration-500"
+            className="w-16 h-16 md:w-24 md:h-24 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] group-hover:scale-110 transition-transform duration-500"
           />
         </div>
 
         {/* Title Overlay at Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-          <h3 className="text-xs md:text-sm font-bold text-white uppercase tracking-wide text-center drop-shadow-lg leading-tight">
+        <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+          <h3 className="text-xs md:text-base font-bold text-white uppercase tracking-wide text-center drop-shadow-lg leading-tight">
             {product.name}
           </h3>
         </div>
@@ -114,23 +114,23 @@ export function ProductCard({ product }: ProductCardProps) {
 
       {/* Product Info Below Card */}
       <div className="text-center">
-        <h4 className="text-[10px] md:text-xs font-bold text-white uppercase mb-1 tracking-wide line-clamp-2 leading-tight">
+        <h4 className="text-xs md:text-sm font-bold text-white uppercase mb-2 tracking-wide line-clamp-2 leading-tight">
           {product.name}
         </h4>
         
-        <div className="flex items-center justify-center gap-1.5 mb-2">
-          <span className="text-[10px] md:text-xs text-gray-500 line-through">
-            ${product.originalPrice}
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <span className="text-xs md:text-sm text-gray-500 line-through">
+            ${product.originalPrice} USD
           </span>
-          <span className="text-sm md:text-base font-bold text-white">
+          <span className="text-base md:text-xl font-bold text-white">
             ${product.price}
           </span>
         </div>
 
         {/* Buttons */}
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           <button 
-            className="w-full py-2 rounded-md bg-[#1a1a1f] hover:bg-[#252529] text-[9px] md:text-[10px] font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/5"
+            className="w-full py-2.5 md:py-3 rounded-lg bg-[#1a1a1f] hover:bg-[#252529] text-[10px] md:text-xs font-medium text-gray-400 hover:text-white transition-all uppercase tracking-widest border border-white/5"
             onClick={() => alert(`Details for ${product.name}: ${product.description}`)}
           >
             DETAILS +
@@ -139,7 +139,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             onClick={handleAddToCart}
             className={cn(
-              "w-full py-2 md:py-2.5 rounded-md font-bold text-[10px] md:text-xs uppercase tracking-wide transition-all",
+              "w-full py-3 md:py-3.5 rounded-lg font-bold text-xs md:text-sm uppercase tracking-wide transition-all",
               isAdded 
                 ? "bg-green-500 text-white"
                 : "bg-purple-600 hover:bg-purple-500 text-white"

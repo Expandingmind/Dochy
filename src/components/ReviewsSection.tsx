@@ -78,22 +78,27 @@ function StarRating({ count }: { count: number }) {
 
 export function ReviewsSection() {
   return (
-    <section className="py-8 bg-black">
-      <div className="container mx-auto px-3 max-w-2xl">
+    <section className="py-10 md:py-16 bg-black">
+      <div className="max-w-5xl mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-6">
           <div className="flex gap-1">
             {[1, 2, 3, 4, 5].map((i) => (
-              <Star key={i} className="w-6 h-6 fill-purple-500 text-purple-500" />
+              <Star key={i} className="w-6 h-6 md:w-8 md:h-8 fill-purple-500 text-purple-500" />
             ))}
           </div>
-          <button className="p-2 rounded-lg border border-white/10 hover:bg-white/5 transition-colors">
-            <SlidersHorizontal className="w-5 h-5 text-white" />
-          </button>
+          <div className="flex items-center gap-3">
+            <button className="hidden md:block px-4 py-2 rounded-lg border border-white/20 text-white font-medium text-sm hover:bg-white/5 transition-colors">
+              Write a review
+            </button>
+            <button className="p-2.5 rounded-lg border border-white/10 hover:bg-white/5 transition-colors">
+              <SlidersHorizontal className="w-5 h-5 text-white" />
+            </button>
+          </div>
         </div>
 
-        {/* Write a review button */}
-        <button className="w-full py-3 mb-6 rounded-lg border border-white/20 text-white font-medium text-sm hover:bg-white/5 transition-colors">
+        {/* Mobile Write a review button */}
+        <button className="md:hidden w-full py-3 mb-6 rounded-lg border border-white/20 text-white font-medium text-sm hover:bg-white/5 transition-colors">
           Write a review
         </button>
 
@@ -102,25 +107,25 @@ export function ReviewsSection() {
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="bg-[#111114] rounded-xl p-4 border border-white/5"
+              className="bg-[#111114] rounded-xl p-4 md:p-6 border border-white/5"
             >
-              <div className="flex gap-4">
+              <div className="flex gap-4 md:gap-6">
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-white font-semibold text-sm mb-1">
+                  <h4 className="text-white font-semibold text-sm md:text-base mb-1.5">
                     {review.name}
                   </h4>
                   <StarRating count={review.stars} />
-                  <p className="text-gray-300 text-sm mt-3 leading-relaxed">
+                  <p className="text-gray-300 text-sm md:text-base mt-3 leading-relaxed">
                     {review.text}
                   </p>
                 </div>
 
                 {/* Image placeholder */}
                 {review.hasImage && (
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 flex-shrink-0 overflow-hidden">
+                  <div className="w-24 h-24 md:w-36 md:h-36 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex-shrink-0 overflow-hidden">
                     <div className="w-full h-full bg-gray-800/50 flex items-center justify-center">
-                      <span className="text-gray-600 text-xs">📸</span>
+                      <span className="text-gray-600 text-2xl">📸</span>
                     </div>
                   </div>
                 )}
@@ -132,4 +137,3 @@ export function ReviewsSection() {
     </section>
   );
 }
-
