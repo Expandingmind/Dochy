@@ -49,6 +49,63 @@ const faqs = [
   { question: "How long does the supplier take to ship?", answer: "Shipping times vary by supplier, but most offer expedited shipping options." },
 ];
 
+const reviews = [
+  {
+    name: "David D.",
+    stars: 5,
+    text: "Just bought my first car just from ecom... crazy 🙏",
+    hasImage: true,
+  },
+  {
+    name: "James W.",
+    stars: 5,
+    text: "Just sold my first big bulk order worth over $1.8k 🔥",
+    hasImage: true,
+  },
+  {
+    name: "Isaiah M.",
+    stars: 5,
+    text: "Crazy how fast things move when you stay consistent.",
+    hasImage: true,
+  },
+  {
+    name: "Keshawn T.",
+    stars: 5,
+    text: "This 🦇 got me feeling like Batman lmao me and my two hb finally got our own 3 bed highrise apartment in downtown Los Angeles. Still ripping bros vendors to this day 😂",
+    hasImage: true,
+  },
+  {
+    name: "Oliver K.",
+    stars: 5,
+    text: "Kinda crazy not even finna come on here and glaze bro, cus I did this all myself, but still to this day I still use the clothing vendor for all of my shipments for my reselling brand. So yeah his vendor is good.",
+    hasImage: true,
+  },
+  {
+    name: "Jayy F.",
+    stars: 5,
+    text: "Best suppliers in the game ngl. Also gives a discount on top of that when buying your products.",
+    hasImage: false,
+  },
+  {
+    name: "Jackson L.",
+    stars: 4,
+    text: "Very good tbh",
+    hasImage: false,
+  },
+  {
+    name: "Mike C.",
+    stars: 5,
+    text: "I mean yeah their good can't complain, much better than other resellers that I've bought from",
+    hasImage: false,
+  },
+  {
+    name: "Jack A.",
+    stars: 5,
+    text: "Leaving this review at the barbershop lol I normally don't be writing reviews but I had to... normally when I buy other resellers vendors it's literally all a copy of eachother, but these were completely new.",
+    hasImage: true,
+  },
+];
+
 export default function ProductDetailPage() {
   const params = useParams();
   const productId = params.id as string;
@@ -236,35 +293,41 @@ export default function ProductDetailPage() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex gap-1">
               {[1,2,3,4,5].map(i => (
-                <Star key={i} className="w-6 h-6 fill-purple-500 text-purple-500" />
+                <Star key={i} className="w-6 h-6 md:w-8 md:h-8 fill-purple-500 text-purple-500" />
               ))}
             </div>
-            <button className="px-4 py-2 border border-white/20 rounded-lg text-white text-sm hover:bg-white/5">
+            <button className="px-4 py-2 border border-white/20 rounded-lg text-white text-sm hover:bg-white/5 transition-colors">
               Write a review
             </button>
           </div>
 
-          {/* Sample Reviews */}
+          {/* All Reviews */}
           <div className="space-y-4">
-            {[
-              { name: "David D.", text: "Just bought my first car just from ecom... crazy 🙏", hasImage: true },
-              { name: "James W.", text: "Just sold my first big bulk order worth over $1.8k 🔥", hasImage: true },
-            ].map((review, i) => (
-              <div key={i} className="bg-[#111114] rounded-xl p-4 flex gap-4">
-                <div className="flex-1">
-                  <h4 className="text-white font-semibold text-sm mb-1">{review.name}</h4>
-                  <div className="flex gap-0.5 mb-2">
-                    {[1,2,3,4,5].map(s => (
-                      <Star key={s} className="w-3 h-3 fill-purple-500 text-purple-500" />
-                    ))}
+            {reviews.map((review, i) => (
+              <div key={i} className="bg-[#111114] rounded-xl p-4 md:p-6 border border-white/5">
+                <div className="flex gap-4 md:gap-6">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-white font-semibold text-sm md:text-base mb-1.5">{review.name}</h4>
+                    <div className="flex gap-0.5 mb-3">
+                      {[1,2,3,4,5].map(s => (
+                        <Star 
+                          key={s} 
+                          className={`w-4 h-4 ${
+                            s <= review.stars
+                              ? "fill-purple-500 text-purple-500"
+                              : "fill-transparent text-purple-500/50"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-gray-300 text-sm md:text-base leading-relaxed">{review.text}</p>
                   </div>
-                  <p className="text-gray-300 text-sm">{review.text}</p>
+                  {review.hasImage && (
+                    <div className="w-24 h-24 md:w-36 md:h-36 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex-shrink-0 overflow-hidden flex items-center justify-center">
+                      <span className="text-gray-600 text-2xl">📸</span>
+                    </div>
+                  )}
                 </div>
-                {review.hasImage && (
-                  <div className="w-24 h-24 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
-                    <span className="text-2xl">📸</span>
-                  </div>
-                )}
               </div>
             ))}
           </div>
