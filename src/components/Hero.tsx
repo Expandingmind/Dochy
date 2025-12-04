@@ -4,7 +4,7 @@ import { Package, Users } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative flex flex-col items-center justify-center text-center pt-8 md:pt-12 pb-8 overflow-hidden bg-black">
-      <div className="container mx-auto px-3 flex flex-col items-center gap-4 z-10 max-w-4xl">
+      <div className="container mx-auto px-3 flex flex-col items-center gap-4 z-10 max-w-5xl">
         
         <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-anton text-white tracking-wide max-w-sm sm:max-w-none leading-[1.15] uppercase italic md:whitespace-nowrap">
           TURN YOUR HUSTLE INTO PROFIT TODAY
@@ -38,33 +38,33 @@ export function Hero() {
         </span>
 
         {/* Category Boxes */}
-        <div className="flex gap-4 mt-6 w-full max-w-md">
+        <div className="flex gap-4 md:gap-6 mt-6 w-full max-w-md md:max-w-3xl">
           <Link 
             href="/items"
-            className="flex-1 relative overflow-hidden rounded-xl p-6 flex flex-col items-center gap-3 transition-all hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60"
+            className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60"
           >
             {/* Purple gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-purple-800/60 to-pink-900/80" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             
-            <div className="relative z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Package className="w-6 h-6 text-white" />
+            <div className="relative z-10 w-12 h-12 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Package className="w-6 h-6 md:w-10 md:h-10 text-white" />
             </div>
-            <span className="relative z-10 text-white font-bold text-sm uppercase tracking-wide">Items</span>
+            <span className="relative z-10 text-white font-bold text-sm md:text-xl uppercase tracking-wide">Items</span>
           </Link>
 
           <Link 
             href="/vendors"
-            className="flex-1 relative overflow-hidden rounded-xl p-6 flex flex-col items-center gap-3 transition-all hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60"
+            className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60"
           >
             {/* Purple gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-blue-900/60 to-purple-800/80" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             
-            <div className="relative z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Users className="w-6 h-6 text-white" />
+            <div className="relative z-10 w-12 h-12 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Users className="w-6 h-6 md:w-10 md:h-10 text-white" />
             </div>
-            <span className="relative z-10 text-white font-bold text-sm uppercase tracking-wide">Vendors</span>
+            <span className="relative z-10 text-white font-bold text-sm md:text-xl uppercase tracking-wide">Vendors</span>
           </Link>
         </div>
       </div>
