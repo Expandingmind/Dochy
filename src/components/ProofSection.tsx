@@ -100,18 +100,18 @@ export function ProofSection() {
 
 export function CTASection() {
   return (
-    <section id="contact" className="py-12 bg-black">
-      <div className="container mx-auto px-3 text-center">
-        <h2 className="text-xl md:text-3xl font-bold text-white mb-3 italic">
+    <section id="contact" className="py-14 md:py-20 bg-black">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
           Start Your Reselling Career!
         </h2>
-        <p className="text-sm md:text-base text-gray-400 mb-6">
+        <p className="text-base md:text-lg text-gray-300 font-medium mb-8">
           Get access to the world&apos;s best suppliers.
         </p>
         
         <Link 
           href="/items"
-          className="inline-block px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg text-sm md:text-base transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.6)]"
+          className="inline-block px-10 py-4 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.6)]"
         >
           Get Access
         </Link>
