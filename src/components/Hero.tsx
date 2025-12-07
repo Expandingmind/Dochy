@@ -33,12 +33,8 @@ export function Hero() {
           </span>
         </div>
 
-        <span className="text-gray-400 mt-2 text-sm">
-          see more
-        </span>
-
         {/* Category Boxes */}
-        <div className="flex gap-4 md:gap-6 mt-6 w-full max-w-md md:max-w-3xl">
+        <div className="flex gap-4 md:gap-6 mt-8 w-full max-w-md md:max-w-3xl">
           <Link 
             href="/items"
             className="flex-1 relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 flex flex-col items-center gap-3 md:gap-5 transition-all duration-300 hover:scale-[1.02] group border border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]"
