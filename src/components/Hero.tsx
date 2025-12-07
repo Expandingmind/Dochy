@@ -15,7 +15,7 @@ export function Hero() {
             {[
               "/IMG_9486.JPG",
               "/IMG_9489.JPG",
-              "/IMG_9487.JPG",
+              "/IMG_9492.JPG",
               "/IMG_9491.JPG",
               "/IMG_9490.JPEG"
             ].map((src, i) => (
