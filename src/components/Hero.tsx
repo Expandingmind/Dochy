@@ -13,11 +13,11 @@ export function Hero() {
         <div className="flex items-center gap-3 mt-4">
           <div className="flex -space-x-2">
             {[
-              "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=60",
-              "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&auto=format&fit=crop&q=60",
-              "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&auto=format&fit=crop&q=60",
-              "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=60",
-              "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&auto=format&fit=crop&q=60"
+              "/IMG_9486.JPG",
+              "/IMG_9489.JPG",
+              "/IMG_9487.JPG",
+              "/IMG_9491.JPG",
+              "/IMG_9490.JPEG"
             ].map((src, i) => (
               <div key={i} className="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-black overflow-hidden">
                  <img 
