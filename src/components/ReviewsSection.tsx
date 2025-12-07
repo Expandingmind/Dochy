@@ -65,7 +65,7 @@ function StarRating({ count }: { count: number }) {
       {[1, 2, 3, 4, 5].map((i) => (
         <Star
           key={i}
-          className={`w-5 h-5 ${
+          className={`w-6 h-6 ${
             i <= count
               ? "fill-purple-500 text-purple-500"
               : "fill-transparent text-purple-500/50"
@@ -84,7 +84,7 @@ export function ReviewsSection() {
         <div className="flex items-center justify-between mb-8">
           <div className="flex gap-1.5">
             {[1, 2, 3, 4, 5].map((i) => (
-              <Star key={i} className="w-7 h-7 md:w-8 md:h-8 fill-purple-500 text-purple-500" />
+              <Star key={i} className="w-8 h-8 md:w-9 md:h-9 fill-purple-500 text-purple-500" />
             ))}
           </div>
           <div className="flex items-center gap-3">
@@ -98,7 +98,7 @@ export function ReviewsSection() {
         </div>
 
         {/* Mobile Write a review button */}
-        <button className="md:hidden w-full py-4 mb-8 rounded-xl border border-white/20 text-white font-bold text-base hover:bg-white/5 transition-colors">
+        <button className="md:hidden w-full py-4 mb-8 rounded-xl border border-white/20 text-white font-bold text-lg hover:bg-white/5 transition-colors">
           Write a review
         </button>
 
@@ -107,16 +107,16 @@ export function ReviewsSection() {
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="bg-[#111114] rounded-2xl p-5 md:p-6 border border-white/5"
+              className="bg-[#111114] rounded-2xl p-6 md:p-6 border border-white/5"
             >
               <div className="flex gap-4 md:gap-6">
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-white font-bold text-base md:text-lg mb-2">
+                  <h4 className="text-white font-bold text-lg md:text-xl mb-2">
                     {review.name}
                   </h4>
                   <StarRating count={review.stars} />
-                  <p className="text-gray-200 font-medium text-base md:text-base mt-4 leading-relaxed">
+                  <p className="text-gray-100 font-bold text-lg md:text-lg mt-4 leading-relaxed">
                     {review.text}
                   </p>
                 </div>
