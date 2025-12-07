@@ -79,9 +79,9 @@ function ProofCard({ card }: { card: typeof proofCards[0] }) {
 
 export function ProofSection() {
   return (
-    <section className="py-10 bg-black overflow-hidden">
-      <div className="container mx-auto px-3 mb-6">
-        <h2 className="text-lg md:text-2xl font-bold text-white text-center">
+    <section className="py-12 md:py-16 bg-black overflow-hidden">
+      <div className="container mx-auto px-4 mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-white text-center">
           Proof Its Not That Hard...
         </h2>
       </div>
