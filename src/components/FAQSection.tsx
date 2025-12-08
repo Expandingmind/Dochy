@@ -35,9 +35,9 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-8 md:py-10 bg-black">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <h2 className="text-xl md:text-2xl font-bold text-white text-center mb-5 whitespace-nowrap">
+    <section id="faq" className="py-10 bg-black">
+      <div className="container mx-auto px-3 max-w-2xl">
+        <h2 className="text-lg md:text-xl font-bold text-white text-center mb-6">
           Frequently Asked Questions
         </h2>
 
@@ -45,16 +45,16 @@ export function FAQSection() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="bg-[#14141a] rounded-lg overflow-hidden"
+              className="bg-[#0f0f13] rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-3 md:p-4 text-left hover:bg-white/[0.02] transition-colors"
               >
-                <span className="text-sm md:text-base font-bold text-white leading-tight pr-2">{faq.question}</span>
+                <span className="text-xs md:text-sm font-medium text-gray-200">{faq.question}</span>
                 <ChevronDown
                   className={cn(
-                    "w-4 h-4 text-gray-400 transition-transform duration-300 flex-shrink-0 ml-2",
+                    "w-4 h-4 text-gray-500 transition-transform duration-300 flex-shrink-0 ml-3",
                     openIndex === i ? "rotate-180" : "rotate-0"
                   )}
                 />
@@ -62,10 +62,10 @@ export function FAQSection() {
               <div
                 className={cn(
                   "overflow-hidden transition-all duration-300 ease-in-out",
-                  openIndex === i ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                  openIndex === i ? "max-h-32 opacity-100" : "max-h-0 opacity-0"
                 )}
               >
-                <p className="px-3 md:px-4 pb-3 md:pb-4 text-gray-300 text-xs md:text-sm font-medium leading-relaxed">
+                <p className="px-3 md:px-4 pb-3 md:pb-4 text-gray-400 text-[11px] md:text-xs leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
