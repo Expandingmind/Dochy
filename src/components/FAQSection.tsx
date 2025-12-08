@@ -49,9 +49,9 @@ export function FAQSection() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-4 md:p-5 text-left hover:bg-white/[0.02] transition-colors"
+                className="w-full flex items-center justify-between p-3 md:p-5 text-left hover:bg-white/[0.02] transition-colors"
               >
-                <span className="text-base md:text-lg font-bold text-white leading-tight pr-2">{faq.question}</span>
+                <span className="text-sm md:text-lg font-bold text-white leading-tight pr-2">{faq.question}</span>
                 <ChevronDown
                   className={cn(
                     "w-5 h-5 text-gray-400 transition-transform duration-300 flex-shrink-0 ml-3",
@@ -65,7 +65,7 @@ export function FAQSection() {
                   openIndex === i ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                 )}
               >
-                <p className="px-4 md:px-5 pb-4 md:pb-5 text-gray-300 text-sm md:text-base font-medium leading-relaxed">
+                <p className="px-3 md:px-5 pb-3 md:pb-5 text-gray-300 text-xs md:text-base font-medium leading-relaxed">
                   {faq.answer}
                 </p>
               </div>

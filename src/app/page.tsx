@@ -9,8 +9,8 @@ export default function Home() {
       <Hero />
       <FAQSection />
       <ProofSection />
-      <CTASection />
       <ReviewsSection />
+      <CTASection />
     </>
   );
 }

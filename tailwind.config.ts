@@ -36,6 +36,7 @@ const config: Config = {
       animation: {
         marquee: 'marquee 40s linear infinite',
         'marquee-reverse': 'marqueeReverse 40s linear infinite',
+        'marquee-fast': 'marqueeReverse 28s linear infinite',
         'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
         'slide-in-left': 'slideInLeft 0.4s ease-out forwards',
         'slide-out-left': 'slideOutLeft 0.4s ease-out forwards',

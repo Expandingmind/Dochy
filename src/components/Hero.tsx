@@ -6,8 +6,9 @@ export function Hero() {
     <section className="relative flex flex-col items-center justify-center text-center pt-8 md:pt-12 pb-8 overflow-hidden bg-black">
       <div className="container mx-auto px-3 flex flex-col items-center gap-4 z-10 max-w-5xl">
         
-        <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-anton text-white tracking-wide max-w-sm sm:max-w-none leading-[1.15] uppercase md:whitespace-nowrap">
-          TURN YOUR HUSTLE INTO PROFIT TODAY.
+        <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-anton text-white tracking-wide leading-[1.2] uppercase md:whitespace-nowrap text-center">
+          <span className="block md:inline">TURN YOUR HUSTLE</span>
+          <span className="block md:inline"> INTO PROFIT TODAY.</span>
         </h1>
 
         <div className="flex items-center gap-3 mt-4">
@@ -28,8 +29,8 @@ export function Hero() {
               </div>
             ))}
           </div>
-          <span className="text-sm md:text-base text-white">
-            Join <span className="font-bold">1,500+</span> Resellers
+          <span className="text-sm md:text-base text-white font-medium">
+            Join <span className="font-bold">5,000+</span> resellers.
           </span>
         </div>
 

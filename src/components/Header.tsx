@@ -30,11 +30,11 @@ export function Header() {
   return (
     <>
       {/* Spacer for fixed top notification */}
-      <div className="h-10" />
+      <div className="h-12" />
       
       <header
         className={cn(
-          "sticky top-10 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
+          "sticky top-12 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
           isScrolled ? "bg-black/90 backdrop-blur-md border-white/10 py-2" : "bg-black py-4"
         )}
       >
@@ -78,7 +78,7 @@ export function Header() {
           </div>
 
           {/* Bottom Row: Desktop Navigation (Centered under Logo) */}
-          <nav className="hidden md:flex items-center gap-6 mt-2">
+          <nav className="hidden md:flex items-center gap-8 mt-5">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
