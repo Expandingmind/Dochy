@@ -100,10 +100,10 @@ export function ProofSection() {
       </div>
 
       {/* Scrolling Proof Cards */}
-      <div className="w-full overflow-hidden relative">
-        {/* Edge fade overlays */}
-        <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none" />
+      <div className="w-full overflow-hidden relative px-8 md:px-16">
+        {/* Edge fade overlays - wider black padding */}
+        <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-black via-black/90 to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-black via-black/90 to-transparent z-20 pointer-events-none" />
         
         <div className="flex gap-6 animate-marquee-fast w-max">
           {[...proofCards, ...proofCards, ...proofCards, ...proofCards].map((card, i) => (

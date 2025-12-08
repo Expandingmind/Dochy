@@ -35,26 +35,26 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-12 md:py-16 bg-black">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-2xl md:text-4xl font-bold text-white text-center mb-8 whitespace-nowrap">
+    <section id="faq" className="py-8 md:py-10 bg-black">
+      <div className="container mx-auto px-4 max-w-2xl">
+        <h2 className="text-xl md:text-2xl font-bold text-white text-center mb-5 whitespace-nowrap">
           Frequently Asked Questions
         </h2>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="bg-[#14141a] rounded-xl overflow-hidden"
+              className="bg-[#14141a] rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-4 md:p-6 text-left hover:bg-white/[0.02] transition-colors"
+                className="w-full flex items-center justify-between p-3 md:p-4 text-left hover:bg-white/[0.02] transition-colors"
               >
-                <span className="text-base md:text-xl font-bold text-white leading-tight pr-2">{faq.question}</span>
+                <span className="text-sm md:text-base font-bold text-white leading-tight pr-2">{faq.question}</span>
                 <ChevronDown
                   className={cn(
-                    "w-6 h-6 text-gray-400 transition-transform duration-300 flex-shrink-0 ml-3",
+                    "w-4 h-4 text-gray-400 transition-transform duration-300 flex-shrink-0 ml-2",
                     openIndex === i ? "rotate-180" : "rotate-0"
                   )}
                 />
@@ -62,10 +62,10 @@ export function FAQSection() {
               <div
                 className={cn(
                   "overflow-hidden transition-all duration-300 ease-in-out",
-                  openIndex === i ? "max-h-56 opacity-100" : "max-h-0 opacity-0"
+                  openIndex === i ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                 )}
               >
-                <p className="px-4 md:px-6 pb-4 md:pb-6 text-gray-300 text-sm md:text-lg font-medium leading-relaxed">
+                <p className="px-3 md:px-4 pb-3 md:pb-4 text-gray-300 text-xs md:text-sm font-medium leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
