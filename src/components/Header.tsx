@@ -78,7 +78,7 @@ export function Header() {
           </div>
 
           {/* Bottom Row: Desktop Navigation (Centered under Logo) */}
-          <nav className="hidden md:flex items-center gap-8 mt-16">
+          <nav className="hidden md:flex items-center gap-8 mt-24">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
