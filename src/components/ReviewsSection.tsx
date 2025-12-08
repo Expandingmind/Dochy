@@ -61,11 +61,11 @@ const reviews = [
 
 function StarRating({ count }: { count: number }) {
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map((i) => (
         <Star
           key={i}
-          className={`w-6 h-6 ${
+          className={`w-4 h-4 ${
             i <= count
               ? "fill-purple-500 text-purple-500"
               : "fill-transparent text-purple-500/50"
@@ -103,29 +103,29 @@ export function ReviewsSection() {
         </button>
 
         {/* Reviews List */}
-        <div className="space-y-5">
+        <div className="space-y-3">
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="bg-[#111114] rounded-2xl p-6 md:p-6 border border-white/5"
+              className="bg-[#111114] rounded-xl p-4 md:p-5 border border-white/5"
             >
-              <div className="flex gap-4 md:gap-6">
+              <div className="flex gap-3 md:gap-4">
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-white font-bold text-lg md:text-xl mb-2">
+                  <h4 className="text-white font-semibold text-sm md:text-base mb-1">
                     {review.name}
                   </h4>
                   <StarRating count={review.stars} />
-                  <p className="text-gray-100 font-bold text-lg md:text-lg mt-4 leading-relaxed">
+                  <p className="text-gray-200 font-normal text-sm md:text-base mt-2 leading-relaxed">
                     {review.text}
                   </p>
                 </div>
 
                 {/* Image placeholder */}
                 {review.hasImage && (
-                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex-shrink-0 overflow-hidden">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 flex-shrink-0 overflow-hidden">
                     <div className="w-full h-full bg-gray-800/50 flex items-center justify-center">
-                      <span className="text-gray-600 text-3xl">📸</span>
+                      <span className="text-gray-600 text-2xl">📸</span>
                     </div>
                   </div>
                 )}
