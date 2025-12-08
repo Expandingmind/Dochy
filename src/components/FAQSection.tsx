@@ -45,7 +45,7 @@ export function FAQSection() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="bg-[#0f0f13] rounded-xl overflow-hidden"
+              className="bg-[#1a1a22] rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
