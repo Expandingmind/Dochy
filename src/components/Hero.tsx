@@ -12,7 +12,7 @@ export function Hero() {
         </h1>
 
         <div className="flex items-center gap-4 mt-5">
-          <div className="flex -space-x-3">
+          <div className="flex -space-x-2">
             {[
               "/IMG_9486.JPG",
               "/IMG_9489.JPG",
@@ -20,7 +20,7 @@ export function Hero() {
               "/IMG_9491.JPG",
               "/IMG_9490.JPEG"
             ].map((src, i) => (
-              <div key={i} className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black overflow-hidden">
+              <div key={i} className="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-black overflow-hidden">
                  <img 
                    src={src} 
                    alt={`Member ${i}`}
