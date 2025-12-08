@@ -11,8 +11,8 @@ export function Hero() {
           <span className="block md:inline"> INTO PROFIT TODAY.</span>
         </h1>
 
-        <div className="flex items-center gap-3 mt-4">
-          <div className="flex -space-x-2">
+        <div className="flex items-center gap-4 mt-5">
+          <div className="flex -space-x-3">
             {[
               "/IMG_9486.JPG",
               "/IMG_9489.JPG",
@@ -20,7 +20,7 @@ export function Hero() {
               "/IMG_9491.JPG",
               "/IMG_9490.JPEG"
             ].map((src, i) => (
-              <div key={i} className="w-7 h-7 md:w-9 md:h-9 rounded-full border-2 border-black overflow-hidden">
+              <div key={i} className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black overflow-hidden">
                  <img 
                    src={src} 
                    alt={`Member ${i}`}
@@ -29,7 +29,7 @@ export function Hero() {
               </div>
             ))}
           </div>
-          <span className="text-sm md:text-base text-white font-medium">
+          <span className="text-lg md:text-xl text-white font-medium">
             Join <span className="font-bold">5,000+</span> resellers.
           </span>
         </div>
