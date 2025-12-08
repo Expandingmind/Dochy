@@ -78,12 +78,12 @@ export function Header() {
           </div>
 
           {/* Bottom Row: Desktop Navigation (Centered under Logo) */}
-          <nav className="hidden md:flex items-center gap-8 mt-20">
+          <nav className="hidden md:flex items-center gap-4 mt-20">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-xs font-medium text-gray-300 hover:text-white transition-colors"
+                className="text-sm font-bold text-gray-300 hover:text-white transition-colors"
               >
                 {link.name}
               </Link>
