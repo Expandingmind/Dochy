@@ -50,37 +50,37 @@ const proofCards = [
 
 function ProofCard({ card }: { card: typeof proofCards[0] }) {
   return (
-    <div className="w-[280px] md:w-[320px] flex-shrink-0 relative">
+    <div className="w-[196px] md:w-[224px] flex-shrink-0 relative">
       {/* Dark fade overlay on sides */}
-      <div className="absolute inset-y-0 -left-4 w-8 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 -right-4 w-8 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 -left-3 w-6 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 -right-3 w-6 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
       
-      <div className="bg-[#0a0a0f] rounded-2xl overflow-hidden border border-white/5">
+      <div className="bg-[#0a0a0f] rounded-xl overflow-hidden border border-white/5">
         {/* Image area */}
         <div className="aspect-[4/3] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center relative">
-          <span className="text-6xl">{card.image}</span>
+          <span className="text-4xl">{card.image}</span>
           {/* Fake DM indicator */}
-          <div className="absolute top-3 right-3 bg-black/60 rounded-full p-1.5">
-            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <div className="absolute top-2 right-2 bg-black/60 rounded-full p-1">
+            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
             </svg>
           </div>
         </div>
         
         {/* Chat messages */}
-        <div className="p-3 space-y-2">
-          <div className="flex items-start gap-2">
-            <div className="w-6 h-6 rounded-full bg-gray-700 flex-shrink-0" />
-            <div className="bg-[#1a1a1f] rounded-2xl rounded-tl-sm px-3 py-2 max-w-[85%]">
-              <p className="text-white text-xs leading-relaxed">{card.mainText}</p>
+        <div className="p-2 space-y-1.5">
+          <div className="flex items-start gap-1.5">
+            <div className="w-4 h-4 rounded-full bg-gray-700 flex-shrink-0" />
+            <div className="bg-[#1a1a1f] rounded-xl rounded-tl-sm px-2 py-1.5 max-w-[85%]">
+              <p className="text-white text-[10px] leading-relaxed">{card.mainText}</p>
             </div>
-            <span className="text-red-500 text-xs">❤️</span>
+            <span className="text-red-500 text-[10px]">❤️</span>
           </div>
           
           {card.reply && (
-            <div className="flex items-start gap-2 justify-end">
-              <div className="bg-[#3b3b45] rounded-2xl rounded-tr-sm px-3 py-2 max-w-[85%]">
-                <p className="text-white text-xs leading-relaxed">{card.reply}</p>
+            <div className="flex items-start gap-1.5 justify-end">
+              <div className="bg-[#3b3b45] rounded-xl rounded-tr-sm px-2 py-1.5 max-w-[85%]">
+                <p className="text-white text-[10px] leading-relaxed">{card.reply}</p>
               </div>
             </div>
           )}
@@ -105,7 +105,7 @@ export function ProofSection() {
         <div className="absolute inset-y-0 left-0 w-32 md:w-72 bg-gradient-to-r from-black via-black/95 via-black/80 to-transparent z-20 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 md:w-72 bg-gradient-to-l from-black via-black/95 via-black/80 to-transparent z-20 pointer-events-none" />
         
-        <div className="flex gap-6 animate-marquee-fast w-max">
+        <div className="flex gap-4 animate-marquee-fast w-max">
           {[...proofCards, ...proofCards, ...proofCards, ...proofCards].map((card, i) => (
             <ProofCard key={`proof-${i}`} card={card} />
           ))}
