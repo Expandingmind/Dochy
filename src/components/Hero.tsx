@@ -6,7 +6,7 @@ export function Hero() {
     <section className="relative flex flex-col items-center justify-center text-center pt-8 md:pt-12 pb-8 overflow-hidden bg-black">
       <div className="container mx-auto px-3 flex flex-col items-center gap-4 z-10 max-w-5xl">
         
-        <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-anton text-white tracking-wide leading-[1.2] uppercase md:whitespace-nowrap text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-anton text-white tracking-wide leading-[1.15] uppercase md:whitespace-nowrap text-center">
           <span className="block md:inline">TURN YOUR HUSTLE</span>
           <span className="block md:inline"> INTO PROFIT TODAY.</span>
         </h1>
