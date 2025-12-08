@@ -58,7 +58,7 @@ export function Header() {
             {/* Center: Logo with Marbling Effect */}
             <div className="z-50">
               <Link href="/">
-                <h1 className="text-xl md:text-2xl font-bold tracking-wider font-anton uppercase bg-gradient-to-r from-purple-400 via-pink-400 via-blue-400 via-purple-500 to-pink-400 bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+                <h1 className="text-2xl md:text-3xl font-bold tracking-wider font-anton uppercase bg-gradient-to-r from-purple-400 via-pink-400 via-blue-400 via-purple-500 to-pink-400 bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
                   DOCHY
                 </h1>
               </Link>
