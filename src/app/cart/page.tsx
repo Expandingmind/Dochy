@@ -4,7 +4,6 @@ import { useCartStore } from "@/lib/store";
 import Link from "next/link";
 import { Trash2, ArrowRight, Loader2 } from "lucide-react";
 import { useState } from "react";
-import { getStripe } from "@/lib/stripe";
 
 export default function CartPage() {
   const { items, removeItem, clearCart } = useCartStore();
@@ -50,11 +49,7 @@ export default function CartPage() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        // Fallback to client-side redirect
-        const stripe = await getStripe();
-        if (stripe) {
-          await stripe.redirectToCheckout({ sessionId: data.sessionId });
-        }
+        throw new Error("No checkout URL received");
       }
     } catch (err) {
       console.error("Checkout error:", err);

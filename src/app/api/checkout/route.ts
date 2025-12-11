@@ -1,13 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-// Check if Stripe key exists
-if (!process.env.STRIPE_SECRET_KEY) {
-  console.error('STRIPE_SECRET_KEY is not set in environment variables');
-}
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
-
 export async function POST(request: NextRequest) {
   try {
     // Check for missing API key
@@ -17,6 +10,9 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Initialize Stripe inside the function (not at module level)
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
     const { items } = await request.json();
 
