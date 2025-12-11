@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { CheckCircle, Download, ArrowLeft } from "lucide-react";
+import { CheckCircle, Download, ArrowLeft, Loader2 } from "lucide-react";
 import { products } from "@/lib/products";
 import { useCartStore } from "@/lib/store";
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
   const [purchasedProducts, setPurchasedProducts] = useState<typeof products>([]);
@@ -18,11 +18,7 @@ export default function SuccessPage() {
     if (sessionId) {
       clearCart();
       
-      // In a real app, you'd verify the session with Stripe and get the products
-      // For now, we'll show all products as a demo
-      // You can enhance this by fetching the session details from an API
-      
-      // Get products from URL or localStorage
+      // Get products from localStorage
       const storedProducts = localStorage.getItem("pending_purchase");
       if (storedProducts) {
         const productIds = JSON.parse(storedProducts) as string[];
@@ -70,7 +66,6 @@ export default function SuccessPage() {
                   <button
                     className="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg transition-all hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
                     onClick={() => {
-                      // In production, this would download the actual file or show access details
                       alert(`Access details for ${product.name} will be sent to your email. For demo: Check your Stripe dashboard.`);
                     }}
                   >
@@ -113,3 +108,21 @@ export default function SuccessPage() {
   );
 }
 
+function LoadingState() {
+  return (
+    <div className="min-h-screen bg-black pt-32 pb-20 flex items-center justify-center">
+      <div className="text-center">
+        <Loader2 className="w-10 h-10 text-purple-500 animate-spin mx-auto mb-4" />
+        <p className="text-gray-400">Loading your purchase...</p>
+      </div>
+    </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<LoadingState />}>
+      <SuccessContent />
+    </Suspense>
+  );
+}
