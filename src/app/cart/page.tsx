@@ -2,14 +2,66 @@
 
 import { useCartStore } from "@/lib/store";
 import Link from "next/link";
-import { Trash2, ArrowRight } from "lucide-react";
+import { Trash2, ArrowRight, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { getStripe } from "@/lib/stripe";
 
 export default function CartPage() {
   const { items, removeItem, clearCart } = useCartStore();
-  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Store product IDs for success page
+      localStorage.setItem(
+        "pending_purchase",
+        JSON.stringify(items.map((item) => item.id))
+      );
+
+      // Create checkout session
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      // Redirect to Stripe Checkout
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        // Fallback to client-side redirect
+        const stripe = await getStripe();
+        if (stripe) {
+          await stripe.redirectToCheckout({ sessionId: data.sessionId });
+        }
+      }
+    } catch (err) {
+      console.error("Checkout error:", err);
+      setError("Failed to start checkout. Please try again.");
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="pt-32 pb-20 container mx-auto px-4 min-h-[60vh]">
@@ -19,7 +71,7 @@ export default function CartPage() {
         <div className="text-center py-12 border border-white/10 rounded-2xl bg-white/5">
           <p className="text-gray-400 mb-6 text-lg">Your cart is empty.</p>
           <Link 
-            href="/#catalog" 
+            href="/items" 
             className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-colors"
           >
             Browse Catalog
@@ -72,36 +124,40 @@ export default function CartPage() {
                 <span>${total.toFixed(2)}</span>
               </div>
 
-              <button
-                onClick={() => setShowCheckoutModal(true)}
-                className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(168,85,247,0.3)] flex items-center justify-center gap-2"
-              >
-                Checkout <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+              {error && (
+                <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                  <p className="text-red-400 text-sm">{error}</p>
+                </div>
+              )}
 
-      {/* Checkout Modal Placeholder */}
-      {showCheckoutModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setShowCheckoutModal(false)} />
-          <div className="bg-[#0a0a0f] border border-white/10 p-8 rounded-2xl relative z-10 max-w-md w-full text-center shadow-[0_0_50px_rgba(168,85,247,0.2)] animate-in fade-in zoom-in duration-300">
-             <h3 className="text-2xl font-black text-white mb-4">Checkout Coming Soon</h3>
-             <p className="text-gray-400 mb-6">
-               We are currently upgrading our payment systems. Join the Inner Circle to get early access.
-             </p>
-             <button
-               onClick={() => setShowCheckoutModal(false)}
-               className="w-full py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg transition-colors"
-             >
-               Close
-             </button>
+              <button
+                onClick={handleCheckout}
+                disabled={isLoading}
+                className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(168,85,247,0.3)] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    Checkout <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+
+              {/* Secure payment badge */}
+              <div className="mt-4 flex items-center justify-center gap-2 text-gray-500 text-xs">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                </svg>
+                Secure checkout powered by Stripe
+              </div>
+            </div>
           </div>
         </div>
       )}
     </div>
   );
 }
-
